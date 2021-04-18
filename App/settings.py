@@ -24,7 +24,7 @@ class DevelopConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "mysql123456",
+        "PASSWORD": "123456",
         "HOST": "localhost",
         "PORT": "3306",
         "DBNAME": "flask_test"
