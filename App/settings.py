@@ -2,7 +2,7 @@ def get_db_uri(dbinfo):
     engine = dbinfo.get("ENGINE") or "mysql"
     driver = dbinfo.get("DRIVER") or "pymysql"
     user = dbinfo.get("USER") or "root"
-    password = dbinfo.get("PASSWORD") or "mysql123456"
+    password = dbinfo.get("PASSWORD") or "123456"
     host = dbinfo.get("HOST") or "localhost"
     port = dbinfo.get("PORT") or "3306"
     dbname = dbinfo.get("DBNAME") or "flask_test"
