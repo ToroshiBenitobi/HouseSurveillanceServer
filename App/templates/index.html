@@ -1,0 +1,19 @@
+{% include 'top.html' %}
+{% include 'left.html' %}
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content">
+        <iframe id="menuFrame" name="menuFrame" src="smartroom/mainView" style="overflow:visible;"
+                scrolling="auto"
+                frameborder="no" height="100%" width="100%">
+        </iframe>
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+{% include 'footer.html' %}
+
+<script>
+    $("#menuFrame").height(window.innerHeight-90);
+</script>
