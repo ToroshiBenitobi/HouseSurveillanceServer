@@ -24,10 +24,10 @@ class DevelopConfig(Config):
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
-        "PASSWORD": "123456",
+        "PASSWORD": "mysql123456",
         "HOST": "localhost",
         "PORT": "3306",
-        "DBNAME": "flask_test"
+        "DBNAME": "housebrainlite"
     }
 
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbinfo)
