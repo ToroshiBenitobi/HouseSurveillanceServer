@@ -1,6 +1,6 @@
-#Modified by smartbuilds.io
-#Date: 27.09.20
-#Desc: This scrtipt script..
+# Modified by smartbuilds.io
+# Date: 27.09.20
+# Desc: This scrtipt script..
 
 import cv2
 from imutils.video.pivideostream import PiVideoStream
@@ -8,8 +8,9 @@ import imutils
 import time
 import numpy as np
 
+
 class Streaming(object):
-    def __init__(self, angle = 0):
+    def __init__(self, angle=0):
         self.vs = PiVideoStream().start()
         self.angle = angle
         time.sleep(2.0)
@@ -26,4 +27,4 @@ class Streaming(object):
         return jpeg.tobytes()
 
 
-camerautl = Streaming(angle=2) # flip pi camera if upside down.
+camerautl = Streaming(angle=2)  # flip pi camera if upside down.
