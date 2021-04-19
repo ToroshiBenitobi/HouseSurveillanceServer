@@ -27,7 +27,7 @@ def create_app(env):
     app.register_blueprint(userblue)
     app.register_blueprint(roomblue)
     app.register_blueprint(orderblue)
-    app.register_blueprint(camerablue)
+    app.register_blueprint(surveillanceblue)
     app.register_blueprint(sensorblue)
     # 初始化第三方扩展库，包括SQLAlchemy及Migrate等第三方库
     init_ext(app=app)
