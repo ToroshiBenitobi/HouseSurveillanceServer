@@ -3,6 +3,6 @@ from App.models import db, Order
 
 sensorblue = Blueprint('sensorblue', __name__)
 
-@sensorblue.route('/sensor', methods=['POST', 'GET'])
+@sensorblue.route('/sensor/temperatureinfo', methods=['POST', 'GET'])
 def sensor():
     pass
