@@ -24,3 +24,6 @@ class Streaming(object):
         frame = self.rotate(self.vs.read())
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
+
+
+camerautl = Streaming(angle=2) # flip pi camera if upside down.

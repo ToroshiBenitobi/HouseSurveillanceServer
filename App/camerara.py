@@ -12,11 +12,6 @@ import time
 import threading
 import os
 
-pi_camera = Streaming(angle=2) # flip pi camera if upside down.
-pi_censor = Sensors()
-# App Globals (do not edit)
-app = Flask(__name__)
-
 @app.route('/')
 def index():
     return render_template('index.html') #you can customze index.html here
@@ -32,24 +27,6 @@ def gen(camera):
 def video_feed():
     return Response(gen(pi_camera),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
-
-@app.route('/sensor-info')
-def sensor_info():
-    msg = 'Temperature: {:.1f} Humidity: {:.1f} Motion: {}'
-    msg = msg.format(pi_censor.temperature(), pi_censor.humidity(), pi_censor.is_detected())
-    return msg
-
-@app.route('/start-recording')
-def start_recording():
-    pass
-
-@app.route('/stop-recording')
-def stop_recording():
-    pass
-
-@app.route('/get-video')
-def get_video():
-    pass
 
 if __name__ == '__main__':
 
