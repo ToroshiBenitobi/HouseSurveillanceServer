@@ -4,7 +4,7 @@ import board
 import adafruit_dht
 import time
 
-class Sensors(object):
+class Sensor(object):
     def __init__(self):
         self.pir = 17
         self.dht = adafruit_dht.DHT22(board.D4, use_pulseio=False)
@@ -53,7 +53,9 @@ class Sensors(object):
             return True
         else:
             return False
-   
+
+
+sensor = Sensor()
 '''
 sensors = Sensors()
 
