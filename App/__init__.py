@@ -11,7 +11,7 @@ from App.settings import envs
 # 引入蓝图模块，有多少引入多少
 from App.views.user import userblue
 from App.views.room import roomblue
-from App.views.camera import camerablue
+from App.views.surveillance import surveillanceblue
 from App.views.sensor import sensorblue
 from App.views.order import orderblue
 def create_app(env):
