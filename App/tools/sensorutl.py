@@ -9,7 +9,7 @@ class Sensor(object):
         self.pir = 17
         self.dht = adafruit_dht.DHT22(board.D4, use_pulseio=False)
         GPIO.setwarnings(False)
-        GPIO.setmode(GPIO.BOARD)
+        # GPIO.setmode(GPIO.)
         GPIO.setup(self.pir,GPIO.IN,pull_up_down=GPIO.PUD_UP)
         
                 
