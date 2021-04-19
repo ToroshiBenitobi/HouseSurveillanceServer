@@ -17,6 +17,8 @@ from App import create_app
 from flask_migrate import MigrateCommand
 # 引入flask-script
 from flask_script import Manager
+from App.tools.sensorutl import Sensor
+sensorutl = Sensor()
 # python中os模块获取环境变量的一个方法，FLASK_ ENV为flask中内置的配置变量
 env = os.environ.get("FLASK_ ENV", "develop")
 # env = os.environ.get("FLASK_ ENV", "testing")
