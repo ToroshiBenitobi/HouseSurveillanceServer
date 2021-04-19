@@ -42,7 +42,7 @@ class TestConfig(Config):
         "PASSWORD": "mysql123456",
         "HOST": "localhost",
         "PORT": "3306",
-        "DBNAME": "housebrainlite"
+        "DBNAME": "flask_test"
     }
 
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbinfo)

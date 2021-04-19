@@ -19,8 +19,8 @@ from flask_migrate import MigrateCommand
 from flask_script import Manager
 
 # python中os模块获取环境变量的一个方法，FLASK_ ENV为flask中内置的配置变量
-env = os.environ.get("FLASK_ ENV", "develop")
-# env = os.environ.get("FLASK_ ENV", "testing")
+# env = os.environ.get("FLASK_ ENV", "develop")
+env = os.environ.get("FLASK_ ENV", "testing")
 # 创建一个app
 app = create_app(env)
 # 使用Manager实例调用script命令
