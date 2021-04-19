@@ -2,7 +2,11 @@ from flask import Flask, Blueprint, render_template, session, redirect, url_for,
 from App.models import db, Order
 VID_DIR = "/python/picamera-suiveillance-webserver/"  # will be created if doesnt exist
 surveillanceblue = Blueprint('surveillanceblue', __name__)
-from App.tools.camerautl import camerautl
+if False:
+    from App.tools.camerautl import camerautl
+else:
+    from App.toolsvirtual.camerautl import camerautl
+
 @surveillanceblue.route('/surveillance/camera', methods=['POST', 'GET'])
 def camera():
     return render_template('surveillance/camera.html')

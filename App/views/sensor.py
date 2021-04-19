@@ -1,9 +1,10 @@
 from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response
 from App.models import db, Order
-print('before import')
-from App.tools.sensorutl import sensorutl
+if False:
+    from App.tools.sensorutl import sensorutl
+else:
+    from App.toolsvirtual.sensorutl import sensorutl
 sensorblue = Blueprint('sensorblue', __name__)
-print('after sensorblue')
 
 @sensorblue.route('/sensor/temperatureinfo', methods=['POST', 'GET'])
 def temperatureinfo():
