@@ -17,7 +17,6 @@ from App import create_app
 from flask_migrate import MigrateCommand
 # 引入flask-script
 from flask_script import Manager
-from App.tools.sensorutl import Sensor
 # python中os模块获取环境变量的一个方法，FLASK_ ENV为flask中内置的配置变量
 env = os.environ.get("FLASK_ ENV", "develop")
 # env = os.environ.get("FLASK_ ENV", "testing")
@@ -28,8 +27,6 @@ manager = Manager(app)
 # flask-migrate也支持flask-script的命令行接口，所以可以用flask-script统一管理，
 # flask-migrate提供了一个ManagerCommand类，可以附加在flask-script的Manager类实例上
 manager.add_command('db', MigrateCommand)
-sensorutl = None
 # flask的启动方法
 if __name__ == '__main__':
-    sensorutl = Sensor()
     manager.run()
