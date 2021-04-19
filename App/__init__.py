@@ -11,7 +11,9 @@ from App.settings import envs
 # 引入蓝图模块，有多少引入多少
 from App.views.user import userblue
 from App.views.room import roomblue
+print('before from App.views.surveillance import surveillanceblue')
 from App.views.surveillance import surveillanceblue
+print('after from App.views.surveillance import surveillanceblue')
 from App.views.sensor import sensorblue
 from App.views.order import orderblue
 def create_app(env):
@@ -28,7 +30,9 @@ def create_app(env):
     app.register_blueprint(roomblue)
     app.register_blueprint(orderblue)
     app.register_blueprint(surveillanceblue)
+    print('beforepp.register_blueprint(sensorblue)')
     app.register_blueprint(sensorblue)
+    print('after epp.register_blueprint(sensorblue)')
     # 初始化第三方扩展库，包括SQLAlchemy及Migrate等第三方库
     init_ext(app=app)
     # 配置Flask-WTF，即设置session，通过加密或签名以不同的方式提升安全性
