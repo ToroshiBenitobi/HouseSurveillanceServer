@@ -6,6 +6,8 @@ import time
 
 class Sensor(object):
     def __init__(self):
+        print('sensor----------------------------------------init')
+
         self.pir = 17
         self.dht = adafruit_dht.DHT22(board.D4, use_pulseio=False)
         GPIO.setwarnings(False)
