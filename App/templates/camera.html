@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+</head>
+
+<title>Camera</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+<center><h1>Camera</h1></center>
+<center><img width="640" height="480" src="{{ url_for('video_feed') }}"><center>
+
+<script type="text/javascript">
+  
+var button = document.getElementById('button');
+
+button.onclick = function() {
+    var div = document.getElementById('newpost');
+    if (div.style.display !== 'none') {
+        div.style.display = 'none';
+    }
+    else {
+        div.style.display = 'block';
+    }
+};
+   
+</script>
+
+</body>
+</html>
+
