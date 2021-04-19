@@ -4,4 +4,6 @@ from App.tools.sensorutl import sensorutl
 sensorblue = Blueprint('sensorblue', __name__)
 @sensorblue.route('/sensor/temperatureinfo', methods=['POST', 'GET'])
 def temperatureinfo():
-    return str(sensorutl.temperature)
+    print(sensorutl.temperature_value)
+    print(sensorutl.temperature())
+    return str(sensorutl.temperature())
