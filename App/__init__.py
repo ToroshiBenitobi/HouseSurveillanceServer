@@ -14,8 +14,6 @@ from App.views.room import roomblue
 from App.views.camera import camerablue
 from App.views.sensor import sensorblue
 from App.views.order import orderblue
-from App.tools.sensorutl import Sensor
-sensorutl = Sensor()
 def create_app(env):
     # 创建app,由主入口manage.py进行调用create_app
     app = Flask(__name__)
