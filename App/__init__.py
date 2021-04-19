@@ -15,7 +15,6 @@ from App.views.camera import camerablue
 from App.views.sensor import sensorblue
 from App.views.order import orderblue
 
-
 def create_app(env):
     # 创建app,由主入口manage.py进行调用create_app
     app = Flask(__name__)
@@ -25,14 +24,15 @@ def create_app(env):
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@127.0.0.1:3306/housebrainlite'
     # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'False'
     app.config.from_object(envs.get(env))
-
+    from App.tools.sensorutl import Sensor
+    global sensorutl
+    sensorutl = Sensor()
     # 注册蓝图
     app.register_blueprint(userblue)
     app.register_blueprint(roomblue)
     app.register_blueprint(orderblue)
     app.register_blueprint(camerablue)
     app.register_blueprint(sensorblue)
-
     # 初始化第三方扩展库，包括SQLAlchemy及Migrate等第三方库
     init_ext(app=app)
 
