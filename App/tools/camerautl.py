@@ -19,6 +19,7 @@ import os
 class Streaming(object):
     def __init__(self, angle=0):
         self.vs = PiVideoStream().start()
+        print('camera----------------------------------------------init')
         self.angle = angle
         time.sleep(2.0)
 
