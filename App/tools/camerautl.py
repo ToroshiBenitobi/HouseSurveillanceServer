@@ -1,7 +1,6 @@
 # Modified by smartbuilds.io
 # Date: 27.09.20
 # Desc: This scrtipt script..
-
 import cv2
 from imutils.video.pivideostream import PiVideoStream
 import imutils
@@ -19,7 +18,6 @@ import os
 class Streaming(object):
     def __init__(self, angle=0):
         self.vs = PiVideoStream().start()
-        print('camera----------------------------------------------init')
         self.angle = angle
         time.sleep(2.0)
 
