@@ -8,6 +8,6 @@ def temperatureinfo():
     return str(sensorutl.temperature())
 
 @sensorblue.route('/sensor/humidityinfo', methods=['POST', 'GET'])
-def temperatureinfo():
+def humidityinfo():
     return str(sensorutl.humidity())
 
