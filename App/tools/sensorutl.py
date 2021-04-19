@@ -54,8 +54,6 @@ class Sensor(object):
         else:
             return False
 
-
-sensor = Sensor()
 '''
 sensors = Sensors()
 
