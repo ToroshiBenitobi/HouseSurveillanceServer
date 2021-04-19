@@ -27,8 +27,6 @@ manager = Manager(app)
 # flask-migrate也支持flask-script的命令行接口，所以可以用flask-script统一管理，
 # flask-migrate提供了一个ManagerCommand类，可以附加在flask-script的Manager类实例上
 manager.add_command('db', MigrateCommand)
-from App.tools.sensorutl import Sensor
-sensorutl = Sensor()
 # flask的启动方法
 if __name__ == '__main__':
     manager.run()
