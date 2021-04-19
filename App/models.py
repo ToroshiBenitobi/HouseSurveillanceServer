@@ -18,7 +18,7 @@ class User(db.Model):
     roommate1 = db.Column(db.String(100))  # 室友一【个人信息】【不可修改】
     roommate2 = db.Column(db.String(100))  # 室友二【个人信息】【不可修改】
     roommate3 = db.Column(db.String(100))  # 室友三【个人信息】【不可修改】
-
+#123
     # hzw
     roomidentity = db.Column(db.String(100))  # 寝室身份权限
 
