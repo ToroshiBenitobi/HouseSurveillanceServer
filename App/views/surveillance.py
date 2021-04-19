@@ -1,11 +1,5 @@
 from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response
 from App.models import db, Order
-import base64
-import json
-from picamera import PiCamera
-import time
-import threading
-import os
 from App.tools.camerautl import camerautl
 VID_DIR = "/python/picamera-suiveillance-webserver/"  # will be created if doesnt exist
 surveillanceblue = Blueprint('surveillanceblue', __name__)
