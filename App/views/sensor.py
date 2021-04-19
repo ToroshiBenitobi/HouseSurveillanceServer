@@ -5,4 +5,4 @@ sensorblue = Blueprint('sensorblue', __name__)
 
 @sensorblue.route('/sensor/temperatureinfo', methods=['POST', 'GET'])
 def temperatureinfo():
-    return sensor.temperature_value
+    return str(sensor.temperature_value)
