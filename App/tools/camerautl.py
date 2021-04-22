@@ -39,7 +39,7 @@ class Streaming(object):
         ret, jpeg = cv2.imencode('.jpg', frame)
         i = 0
         path = self.save_path + '{}.jpg'
-        while i < 500:
+        while i < 50:
             cv2.imwrite(path.format(i), frame)
             i += 1
             time.sleep(0.1)
