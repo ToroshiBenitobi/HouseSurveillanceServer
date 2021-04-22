@@ -42,7 +42,7 @@ class Streaming(object):
         while i < 50:
             cv2.imwrite(path.format(i), frame)
             i += 1
-            time.sleep(0.1)
+            time.sleep(0.5)
 
 
 camerautl = Streaming(save_path=SAVE_PATH, angle=2)  # flip pi camera if upside down.
