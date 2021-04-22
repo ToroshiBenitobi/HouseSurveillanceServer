@@ -11,10 +11,10 @@ def camera():
     return render_template('surveillance/camera.html')
 
 
-def gen(camera):
+def gen(camerautl):
     # get camera frame
     while True:
-        frame = camera.get_frame()
+        frame = camerautl.get_frame()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
@@ -23,3 +23,8 @@ def gen(camera):
 def video_feed():
     return Response(gen(camerautl),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@surveillanceblue.route('/surveillance/savevideo')
+def save_video():
+    camerautl.save_frames()

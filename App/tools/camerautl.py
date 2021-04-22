@@ -34,7 +34,7 @@ class Streaming(object):
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
 
-    def save_frame(self):
+    def save_frames(self):
         frame = self.rotate(self.vs.read())
         ret, jpeg = cv2.imencode('.jpg', frame)
         i = 0
