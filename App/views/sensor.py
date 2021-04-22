@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response
 from App.models import db, Order
-if False:
+if True:
     from App.tools.sensorutl import sensorutl
 else:
     from App.toolsvirtual.sensorutl import sensorutl

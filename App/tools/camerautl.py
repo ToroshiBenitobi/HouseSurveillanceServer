@@ -14,10 +14,12 @@ from picamera import PiCamera
 import time
 import threading
 import os
+SAVE_PATH = "/home/pi/Videos/Test"  # will be created if doesnt exist
 
 class Streaming(object):
-    def __init__(self, angle=0):
-        self.vs = PiVideoStream().start()
+    def __init__(self, save_path='', angle=0):
+        self.vs = PiVideoStream(resolution=(1920, 1280), framerate=30).start()
+        self.save_path = save_path
         self.angle = angle
         time.sleep(2.0)
 
@@ -32,5 +34,15 @@ class Streaming(object):
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
 
+    def save_frame(self):
+        frame = self.rotate(self.vs.read())
+        ret, jpeg = cv2.imencode('.jpg', frame)
+        i = 0
+        path = self.save_path + '{}.jpg'
+        while i < 50:
+            cv2.imwrite(path.format(i), frame)
+            i += 1
+            time.sleep(0.2)
 
-camerautl = Streaming(angle=2)  # flip pi camera if upside down.
+
+camerautl = Streaming(save_path=SAVE_PATH, angle=2)  # flip pi camera if upside down.

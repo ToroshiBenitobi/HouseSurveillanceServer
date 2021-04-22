@@ -1,8 +1,7 @@
 from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response
 from App.models import db, Order
-VID_DIR = "/python/picamera-suiveillance-webserver/"  # will be created if doesnt exist
 surveillanceblue = Blueprint('surveillanceblue', __name__)
-if False:
+if True:
     from App.tools.camerautl import camerautl
 else:
     from App.toolsvirtual.camerautl import camerautl
