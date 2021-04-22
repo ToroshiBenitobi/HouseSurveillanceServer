@@ -28,3 +28,4 @@ def video_feed():
 @surveillanceblue.route('/surveillance/savevideo')
 def save_video():
     camerautl.save_frames()
+    return 'save'

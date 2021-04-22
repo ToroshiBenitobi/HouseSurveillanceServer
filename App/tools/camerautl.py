@@ -18,7 +18,7 @@ SAVE_PATH = "/home/pi/Videos/Test"  # will be created if doesnt exist
 
 class Streaming(object):
     def __init__(self, save_path='', angle=0):
-        self.vs = PiVideoStream(resolution=(1920, 1280), framerate=30).start()
+        self.vs = PiVideoStream(framerate=30).start()
         self.save_path = save_path
         self.angle = angle
         time.sleep(2.0)
