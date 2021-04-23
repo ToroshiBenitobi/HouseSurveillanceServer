@@ -38,7 +38,7 @@ def gen():
 
 
 @surveillanceblue.route('/surveillance/streaming')
-def video_feed():
+def streaming():
     return Response(gen(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
