@@ -7,28 +7,19 @@
 
 <title>Camera</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
 
 <center><h1>Camera</h1></center>
-<center><img width="640" height="480" src="{{ url_for('surveillanceblue.video_feed') }}"><center>
-
-<script type="text/javascript">
-  
-var button = document.getElementById('button');
-
-button.onclick = function() {
-    var div = document.getElementById('newpost');
-    if (div.style.display !== 'none') {
-        div.style.display = 'none';
-    }
-    else {
-        div.style.display = 'block';
-    }
-};
-   
-</script>
+<div class="top">
+    <div class="recorder" id="recorder" align="center">
+        <button id="record" class="btn">Record</button>
+        <button id="stop" class="btn">Stop</button>
+        <a id="download"></a>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/recorder.js') }}"></script>
+    </div>
+</div>
+<img width="640" height="480" id="video" src="{{ url_for('surveillanceblue.streaming') }}">
 
 </body>
 </html>
