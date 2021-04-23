@@ -14,7 +14,7 @@ import os
 
 @app.route('/')
 def index():
-    return render_template('index.html') #you can customze index.html here
+    return render_template('2.html') #you can customze 2.html here
 
 def gen(camera):
     #get camera frame

@@ -40,7 +40,7 @@ def login():
             # return response
 
             # return redirect(url_for('userblue.index'))
-            return render_template('index.html')
+            return render_template('2.html')
 
         else:
             return render_template('login.html', message='用户名不存在或密码错误！')
@@ -55,12 +55,12 @@ def getuser():
 
 @userblue.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('2.html')
 
 
 @userblue.route('/account')
 def account():
-    return render_template('index.html')
+    return render_template('2.html')
 
 
 # 用户登出
