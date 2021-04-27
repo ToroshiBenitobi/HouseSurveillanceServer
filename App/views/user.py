@@ -12,7 +12,7 @@ userblue = Blueprint('userblue', __name__)
 
 # 配置路由
 
-@userblue.route('/login', methods=['POST', 'GET'])
+@userblue.route('/', methods=['POST', 'GET'])
 def login():
     if request.method == 'GET':
         return render_template('login.html')
