@@ -15,6 +15,7 @@ userblue = Blueprint('userblue', __name__)
 @userblue.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
+        return 'no'
         return render_template('login.html')
     else:
         username = request.form.get('username')
