@@ -93,13 +93,15 @@ class VideoCamera(object):
 
             # 视频录制
             if self.is_record:
+                print('self.is_record')
                 if self.out == None:
+                    print('self.out == None')
                     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
                     self.out = cv2.VideoWriter('./static/video.avi', fourcc, 20.0, (640, 480))
 
                 ret, frame = self.cap.read()
                 if ret:
-                    cv2.imshow('frame', frame)
+                    print('ret')
                     self.out.write(frame)
             else:
                 if self.out != None:
