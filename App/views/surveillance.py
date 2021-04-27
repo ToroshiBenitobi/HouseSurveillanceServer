@@ -46,16 +46,17 @@ def streaming():
 
 @surveillanceblue.route('/surveillance/recordstatus', methods=['POST'])
 def record_status():
+    global camerautl
     if camerautl is None:
-        video_camera = VideoCamera()
+        camerautl = VideoCamera()
 
     json = request.get_json()
 
     status = json['status']
 
     if status == "true":
-        video_camera.start_record()
+        camerautl.start_record()
         return jsonify(result="started")
     else:
-        video_camera.stop_record()
+        camerautl.stop_record()
         return jsonify(result="stopped")
