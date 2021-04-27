@@ -99,6 +99,7 @@ class VideoCamera(object):
 
                 ret, frame = self.cap.read()
                 if ret:
+                    cv2.imshow('frame', frame)
                     self.out.write(frame)
             else:
                 if self.out != None:
