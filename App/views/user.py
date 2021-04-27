@@ -15,7 +15,6 @@ userblue = Blueprint('userblue', __name__)
 @userblue.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        return 'no'
         return render_template('login.html')
     else:
         username = request.form.get('username')
@@ -119,15 +118,19 @@ def targets():
 
 # hzw
 # 登陆后主界面
+# @userblue.route('/smartroom/mainView')
+# def mainView():
+#     item = session.get('user')
+#     user = User.query.filter(User.username == item.get("username")).first()
+#     user1 = User.query.filter(User.username == user.roommate1).first()
+#     user2 = User.query.filter(User.username == user.roommate2).first()
+#     user3 = User.query.filter(User.username == user.roommate3).first()
+#     room = Room.query.filter(Room.roomid == item.get("roomid")).first()
+#     return render_template('smartroom/mainView.html', user=user, user1=user1, user2=user2, user3=user3, room=room)
+
 @userblue.route('/smartroom/mainView')
 def mainView():
-    item = session.get('user')
-    user = User.query.filter(User.username == item.get("username")).first()
-    user1 = User.query.filter(User.username == user.roommate1).first()
-    user2 = User.query.filter(User.username == user.roommate2).first()
-    user3 = User.query.filter(User.username == user.roommate3).first()
-    room = Room.query.filter(Room.roomid == item.get("roomid")).first()
-    return render_template('smartroom/mainView.html', user=user, user1=user1, user2=user2, user3=user3, room=room)
+    return render_template('smartroom/mainView.html', user=None, user1=None, user2=None, user3=None, room=None)
 
 
 # 寝室维修界面
