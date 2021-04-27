@@ -12,15 +12,12 @@ userblue = Blueprint('userblue', __name__)
 
 # 配置路由
 
+@userblue.route('/', methods=['POST', 'GET'])
 @userblue.route('/login', methods=['POST', 'GET'])
 def login():
-    print(1)
     if request.method == 'GET':
-        print(2)
         return render_template('login.html')
-        print(3)
     else:
-        print(4)
         username = request.form.get('username')
         password = request.form.get('password')
         result = User.query.filter(User.username == username, User.password == password).first()
