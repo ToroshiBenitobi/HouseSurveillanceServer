@@ -103,6 +103,7 @@ class VideoCamera(object):
                 if ret:
                     print('ret')
                     self.out.write(frame)
+                    print(frame)
             else:
                 if self.out != None:
                     self.out.release()
