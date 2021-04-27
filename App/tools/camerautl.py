@@ -102,8 +102,8 @@ class VideoCamera(object):
                 ret, frame = self.cap.read()
                 if ret:
                     print('ret')
+                    print(frame.shape)
                     self.out.write(frame)
-                    print(frame)
             else:
                 if self.out != None:
                     self.out.release()
