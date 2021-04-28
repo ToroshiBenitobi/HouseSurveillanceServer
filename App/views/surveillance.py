@@ -72,7 +72,7 @@ def record_status():
         return jsonify(result="stopped", save_path=save_path)
 
 
-@surveillanceblue.route('/surveillance/downloadvideo', method=['POST'])
+@surveillanceblue.route('/surveillance/downloadvideo', methods=['POST'])
 def download_video():
     item = session.get('user')
     userid = item.get('id')
