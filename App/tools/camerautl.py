@@ -93,7 +93,7 @@ class VideoCamera(object):
             if self.is_record:
                 if self.out == None:
                     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-                    self.out = cv2.VideoWriter(self.save_path, fourcc, 20.0, (640, 480))
+                    self.out = cv2.VideoWriter(self.save_path, fourcc, 24.0, (640, 480))
 
                 ret, frame = self.cap.read()
                 if ret:
