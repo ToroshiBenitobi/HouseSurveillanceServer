@@ -114,6 +114,7 @@ class VideoCamera(object):
 
     def stop_record(self):
         self.is_record = False
+        return self.save_path
 
         # if self.recordingThread != None:
         #     self.recordingThread.stop()

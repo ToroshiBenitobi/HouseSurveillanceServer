@@ -65,3 +65,11 @@ class Order(db.Model):
     watercost = db.Column(db.Integer)  # 充值水费
     lightcost = db.Column(db.Integer)  # 充值电费
     id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+class Video(db.Model):
+    videoid = db.Column(db.Integer, primary_key=True) # id of video
+    savepath = db.Column(db.String(50)) # path where video saved
+    videoname = db.Column(db.String(50)) # name of video
+    userid = db.Column(db.Integer, db.ForeignKey('user.id'))
+

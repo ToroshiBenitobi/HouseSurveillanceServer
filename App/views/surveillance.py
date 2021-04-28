@@ -1,6 +1,8 @@
 from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response, jsonify
 from App.models import db, Order
 import json
+import datetime
+from App.models import db, User, Video
 
 surveillanceblue = Blueprint('surveillanceblue', __name__)
 camerautl = None
@@ -15,8 +17,6 @@ else:
 @surveillanceblue.route('/surveillance/camera', methods=['POST', 'GET'])
 def camera():
     return render_template('surveillance/camera.html')
-
-
 
 
 def gen():
@@ -58,5 +58,15 @@ def record_status():
         camerautl.start_record()
         return jsonify(result="started")
     else:
-        camerautl.stop_record()
+        save_path = camerautl.stop_record()
+        item = session.get('user')
+        userid = item.get('id')
+        video = Video()
+        video.videoid = video.query.count() + 1
+        video.videoname = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+        video.savepath = save_path
+        if userid != None:
+            video.userid = userid
+        db.session.add(video)
+        db.session.commit()
         return jsonify(result="stopped")
