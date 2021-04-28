@@ -69,4 +69,4 @@ def record_status():
             video.userid = userid
         db.session.add(video)
         db.session.commit()
-        return jsonify(result="stopped")
+        return jsonify(result="stopped", save_path=save_path)

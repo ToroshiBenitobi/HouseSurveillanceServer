@@ -17,7 +17,9 @@ buttonRecord.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            msg.textContent = xhr.responseText
+            var result = JSON.parse(xhr.responseText)
+            msg.textContent = result.result
+            print('record start')
         }
     }
     xhr.open("POST", "/surveillance/recordstatus");
@@ -34,12 +36,13 @@ buttonStop.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            msg.textContent = xhr.responseText
-
-            // 设置下载链接
+            var result = JSON.parse(xhr.responseText)
+            msg.textContent = result.result
+            print('record end')
+            // set download link
             var downloadLink = document.getElementById("download");
-            downloadLink.text = "下载视频";
-            downloadLink.href = "/static/video.avi";
+            downloadLink.text = "Download";
+            downloadLink.href = result.save_path;
         }
     }
     xhr.open("POST", "/surveillance/recordstatus");
