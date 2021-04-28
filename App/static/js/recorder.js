@@ -1,5 +1,6 @@
 var buttonRecord = document.getElementById("record");
 var buttonStop = document.getElementById("stop");
+var msg = document.getElementById("msg");
 
 buttonStop.disabled = true;
 
@@ -7,7 +8,6 @@ buttonRecord.onclick = function () {
     // var url = window.location.href + "record_status";
     buttonRecord.disabled = true;
     buttonStop.disabled = false;
-
     // 禁用下载链接
     var downloadLink = document.getElementById("download");
     downloadLink.text = "";
@@ -17,13 +17,13 @@ buttonRecord.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            alert(xhr.responseText);
+            msg.textContent = xhr.responseText
         }
     }
     xhr.open("POST", "/surveillance/recordstatus");
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.send(JSON.stringify({status: "true"}));
-    document.write(xhr.responseText);
+
 };
 
 buttonStop.onclick = function () {
@@ -34,7 +34,7 @@ buttonStop.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            alert(xhr.responseText);
+            msg.textContent = xhr.responseText
 
             // 设置下载链接
             var downloadLink = document.getElementById("download");
@@ -45,6 +45,5 @@ buttonStop.onclick = function () {
     xhr.open("POST", "/surveillance/recordstatus");
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.send(JSON.stringify({status: "false"}));
-    document.write(xhr.responseText);
 };
 
