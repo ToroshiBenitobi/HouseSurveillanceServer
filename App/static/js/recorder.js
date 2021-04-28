@@ -17,9 +17,9 @@ buttonRecord.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var result = JSON.eval(xhr.responseText)
-            msg.textContent = result.result
-            print('record start')
+            var result = JSON.parse(xhr.responseText);
+            msg.textContent = result.result;
+            print('record start');
         }
     }
     xhr.open("POST", "/surveillance/recordstatus");
@@ -36,9 +36,9 @@ buttonStop.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var result = JSON.eval(xhr.responseText)
-            msg.textContent = result.result
-            print('record end')
+            var result = JSON.parse(xhr.responseText);
+            msg.textContent = result.result;
+            print('record end');
             // set download link
             var downloadLink = document.getElementById("download");
             downloadLink.text = "Download";
