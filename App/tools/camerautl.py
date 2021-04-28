@@ -13,7 +13,7 @@ from picamera import PiCamera
 import time
 import threading
 import os
-SAVE_PATH = "/home/pi/Videos/Test"  # will be created if doesnt exist
+import datetime
 
 # class Streaming(object):
 #     def __init__(self, save_path='', angle=0):
@@ -45,41 +45,39 @@ SAVE_PATH = "/home/pi/Videos/Test"  # will be created if doesnt exist
 #
 # camerautl = Streaming(save_path=SAVE_PATH, angle=2)  # flip pi camera if upside down.
 
-class RecordingThread(threading.Thread):
-    def __init__(self, name, camera):
-        threading.Thread.__init__(self)
-        self.name = name
-        self.isRunning = True
-        self.cap = camera
-        fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('App/static/savevideos/video.avi', fourcc, 20.0, (640, 480))
-
-    def run(self):
-        while self.isRunning:
-            ret, frame = self.cap.read()
-            if ret:
-                self.out.write(frame)
-
-        self.out.release()
-
-    def stop(self):
-        self.isRunning = False
-
-    def __del__(self):
-        self.out.release()
+# class RecordingThread(threading.Thread):
+#     def __init__(self, name, camera):
+#         threading.Thread.__init__(self)
+#         self.name = name
+#         self.isRunning = True
+#         self.cap = camera
+#         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+#         self.out = cv2.VideoWriter('App/static/savevideos/video.avi', fourcc, 20.0, (640, 480))
+#
+#     def run(self):
+#         while self.isRunning:
+#             ret, frame = self.cap.read()
+#             if ret:
+#                 self.out.write(frame)
+#
+#         self.out.release()
+#
+#     def stop(self):
+#         self.isRunning = False
+#
+#     def __del__(self):
+#         self.out.release()
 
 
 class VideoCamera(object):
-    def __init__(self):
+    def __init__(self, root_path = "App/static/savevideos/"):
         # 打开摄像头， 0代表笔记本内置摄像头
         self.cap = cv2.VideoCapture(0)
-
+        self.root_path = root_path
+        self.save_path = self.root_path + datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + '.avi'
         # 初始化视频录制环境
         self.is_record = False
         self.out = None
-
-        # 视频录制线程
-        self.recordingThread = None
 
     # 退出程序释放摄像头
     def __del__(self):
@@ -93,16 +91,12 @@ class VideoCamera(object):
 
             # 视频录制
             if self.is_record:
-                print('self.is_record')
                 if self.out == None:
-                    print('self.out == None')
                     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-                    self.out = cv2.VideoWriter('App/static/savevideos/video001.avi', fourcc, 20.0, (640, 480))
+                    self.out = cv2.VideoWriter(self.save_path, fourcc, 20.0, (640, 480))
 
                 ret, frame = self.cap.read()
                 if ret:
-                    print('ret')
-                    print(frame.shape)
                     self.out.write(frame)
             else:
                 if self.out != None:
@@ -115,12 +109,11 @@ class VideoCamera(object):
             return None
 
     def start_record(self):
+        self.save_path = self.root_path + datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + '.avi'
         self.is_record = True
-        # self.recordingThread = RecordingThread("Video Recording Thread", self.cap)
-        # self.recordingThread.start()
 
     def stop_record(self):
         self.is_record = False
 
-        if self.recordingThread != None:
-            self.recordingThread.stop()
+        # if self.recordingThread != None:
+        #     self.recordingThread.stop()
