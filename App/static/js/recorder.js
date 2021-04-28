@@ -17,7 +17,7 @@ buttonRecord.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var result = JSON.parse(xhr.responseText)
+            var result = JSON.eval(xhr.responseText)
             msg.textContent = result.result
             print('record start')
         }
@@ -36,7 +36,7 @@ buttonStop.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var result = JSON.parse(xhr.responseText)
+            var result = JSON.eval(xhr.responseText)
             msg.textContent = result.result
             print('record end')
             // set download link
