@@ -74,7 +74,8 @@ class VideoCamera(object):
         # 打开摄像头， 0代表笔记本内置摄像头
         self.cap = cv2.VideoCapture(0)
         self.root_path = root_path
-        self.save_path = self.root_path + datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + '.avi'
+        self.video_name = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f')
+        self.save_path = self.root_path + self.video_name + '.avi'
         # 初始化视频录制环境
         self.is_record = False
         self.out = None
@@ -109,12 +110,14 @@ class VideoCamera(object):
             return None
 
     def start_record(self):
-        self.save_path = self.root_path + datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + '.avi'
+        self.video_name = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f')
+        self.save_path = self.root_path + self.video_name + '.avi'
         self.is_record = True
 
     def stop_record(self):
         self.is_record = False
-        return self.save_path
+        path = '/static/savevideos/' + self.video_name + '.avi'
+        return path
 
         # if self.recordingThread != None:
         #     self.recordingThread.stop()
