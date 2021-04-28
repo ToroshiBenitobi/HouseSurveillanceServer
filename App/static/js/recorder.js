@@ -23,6 +23,7 @@ buttonRecord.onclick = function () {
     xhr.open("POST", "/surveillance/recordstatus");
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.send(JSON.stringify({status: "true"}));
+    document.write(xhr.responseText);
 };
 
 buttonStop.onclick = function () {
@@ -44,5 +45,6 @@ buttonStop.onclick = function () {
     xhr.open("POST", "/surveillance/recordstatus");
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.send(JSON.stringify({status: "false"}));
+    document.write(xhr.responseText);
 };
 
