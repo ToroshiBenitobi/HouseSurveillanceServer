@@ -18,7 +18,7 @@ class Config:
 
 # 开发环境
 class DevelopConfig(Config):
-    DEBUG = False
+    DEBUG = True
 
     dbinfo = {
         "ENGINE": "mysql",
