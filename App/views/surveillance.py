@@ -70,3 +70,11 @@ def record_status():
         db.session.add(video)
         db.session.commit()
         return jsonify(result="stopped", save_path=save_path)
+
+
+@surveillanceblue.route('/surveillance/downloadvideo', method=['POST'])
+def download_video():
+    item = session.get('user')
+    userid = item.get('id')
+    videos = Video.query.filter(Video.userid == userid).all()
+    return render_template('/surveillance/downloadvideo.html', videos=videos)
