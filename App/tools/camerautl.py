@@ -52,7 +52,7 @@ class RecordingThread(threading.Thread):
         self.isRunning = True
         self.cap = camera
         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('video.avi', fourcc, 20.0, (640, 480))
+        self.out = cv2.VideoWriter('App/static/savevideos/video.avi', fourcc, 20.0, (640, 480))
 
     def run(self):
         while self.isRunning:
@@ -97,7 +97,7 @@ class VideoCamera(object):
                 if self.out == None:
                     print('self.out == None')
                     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-                    self.out = cv2.VideoWriter('video.avi', fourcc, 20.0, (640, 480))
+                    self.out = cv2.VideoWriter('App/static/savevideos/video1.avi', fourcc, 20.0, (640, 480))
 
                 ret, frame = self.cap.read()
                 if ret:
