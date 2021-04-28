@@ -77,4 +77,5 @@ def download_video():
     item = session.get('user')
     userid = item.get('id')
     videos = Video.query.filter(Video.userid == userid).all()
+    print(videos)
     return render_template('/surveillance/downloadvideo.html', videos=videos)
