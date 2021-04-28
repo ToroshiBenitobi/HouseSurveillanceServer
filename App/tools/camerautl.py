@@ -116,8 +116,8 @@ class VideoCamera(object):
 
     def start_record(self):
         self.is_record = True
-        self.recordingThread = RecordingThread("Video Recording Thread", self.cap)
-        self.recordingThread.start()
+        # self.recordingThread = RecordingThread("Video Recording Thread", self.cap)
+        # self.recordingThread.start()
 
     def stop_record(self):
         self.is_record = False
