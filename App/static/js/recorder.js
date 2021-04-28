@@ -17,9 +17,10 @@ buttonRecord.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var result = JSON.parse(xhr.responseText);
-            msg.textContent = result.result;
-            print('record start');
+            console.log(xhr.responseText);
+            // var result = JSON.parse(xhr.responseText);
+            // msg.textContent = result.result;
+            console.log('start recording');
         }
     }
     xhr.open("POST", "/surveillance/recordstatus");
@@ -36,13 +37,14 @@ buttonStop.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var result = JSON.parse(xhr.responseText);
-            msg.textContent = result.result;
-            print('record end');
-            // set download link
-            var downloadLink = document.getElementById("download");
-            downloadLink.text = "Download";
-            downloadLink.href = result.save_path;
+            console.log(xhr.responseText);
+            // var result = JSON.parse(xhr.responseText);
+            // msg.textContent = result.result;
+            // // set download link
+            // var downloadLink = document.getElementById("download");
+            // downloadLink.text = "Download";
+            // downloadLink.href = result.save_path;
+            console.log('end recording');
         }
     }
     xhr.open("POST", "/surveillance/recordstatus");
