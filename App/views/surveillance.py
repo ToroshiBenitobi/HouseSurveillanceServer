@@ -60,12 +60,12 @@ def record_status():
     else:
         save_path = camerautl.stop_record()
         item = session.get('user')
-        userid = item.get('id')
         video = Video()
         video.videoid = video.query.count() + 1
         video.videoname = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
         video.savepath = save_path
-        if userid != None:
+        if item is not None:
+            userid = item.get('id')
             video.userid = userid
         db.session.add(video)
         db.session.commit()
