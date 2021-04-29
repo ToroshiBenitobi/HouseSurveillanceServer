@@ -18,8 +18,8 @@ buttonRecord.onclick = function () {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             console.log(xhr.responseText);
-            // var result = JSON.parse(xhr.responseText);
-            // msg.textContent = result.result;
+            var result = JSON.parse(xhr.responseText);
+            msg.textContent = result['result'];
             console.log('start recording');
         }
     }
@@ -38,12 +38,12 @@ buttonStop.onclick = function () {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             console.log(xhr.responseText);
-            // var result = JSON.parse(xhr.responseText);
-            // msg.textContent = result.result;
-            // // set download link
-            // var downloadLink = document.getElementById("download");
-            // downloadLink.text = "Download";
-            // downloadLink.href = result.save_path;
+            var result = JSON.parse(xhr.responseText);
+            msg.textContent = result['result'];
+            // set download link
+            var downloadLink = document.getElementById("download");
+            downloadLink.text = "Download";
+            downloadLink.href = result[save_path];
             console.log('end recording');
         }
     }
