@@ -42,7 +42,7 @@ buttonStop.onclick = function () {
             // set download link
             var downloadLink = document.getElementById("download");
             downloadLink.text = "Download";
-            downloadLink.href = result[save_path];
+            downloadLink.href = result['save_path'];
             console.log('end recording');
         }
     }
