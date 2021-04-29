@@ -12,5 +12,5 @@ def temperatureinfo():
 
 @sensorblue.route('/sensor/humidityinfo', methods=['POST', 'GET'])
 def humidityinfo():
-    return jsonify(value=str(sensorutl.humidity()))  
+    return jsonify(value=str(sensorutl.humidity()))
 

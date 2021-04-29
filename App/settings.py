@@ -35,12 +35,14 @@ class DevelopConfig(Config):
 
 # 测试环境
 class TestConfig(Config):
+    DEBUG = True
+
     dbinfo = {
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
         "USER": "root",
         "PASSWORD": "123456",
-        "HOST": "127.0.0.1",
+        "HOST": "192.168.50.2",
         "PORT": "3306",
         "DBNAME": "flask_test"
     }
