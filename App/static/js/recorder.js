@@ -1,6 +1,5 @@
 var buttonRecord = document.getElementById("record");
 var buttonStop = document.getElementById("stop");
-var msg = document.getElementById("msg");
 
 buttonStop.disabled = true;
 
@@ -17,9 +16,9 @@ buttonRecord.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
+            var msg = document.getElementById("msg");
             var result = JSON.parse(xhr.responseText);
-            msg.innerText = result['result'];
+            msg.textContent = result['result'];
             console.log('start recording');
         }
     }
@@ -37,7 +36,7 @@ buttonStop.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
+            var msg = document.getElementById("msg");
             var result = JSON.parse(xhr.responseText);
             msg.innerText = result['result'];
             // set download link
