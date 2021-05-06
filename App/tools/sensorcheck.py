@@ -13,7 +13,7 @@ TEM_LOW_LIMIT = 10
 TEM_HIGH_LIMIT = 30
 HUM_LOW_LIMIT = 10
 HUM_HIGH_LIMIT = 60
-ENTER_NOT_ALLOWED = False
+ENTER_NOT_ALLOWED = True
 def check_sensor():
     with scheduler.app.app_context():
         global abnormally
