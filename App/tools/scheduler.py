@@ -8,22 +8,24 @@ abnormally = False
 
 
 def check_sensor():
+    TEMPERATURE_LIMIT = 28
+    HUMIDITY_LIMIT = 60
     global abnormally
     temperature = sensorutl.temperature()
     humidity = sensorutl.humidity()
     print(temperature, humidity)
-    if temperature < 27 and humidity < 60 and not abnormally:
+    if temperature < TEMPERATURE_LIMIT and humidity < HUMIDITY_LIMIT and not abnormally:
         print(1)
         pass
-    elif (temperature >= 27 or humidity >= 60) and not abnormally:
+    elif (temperature >= TEMPERATURE_LIMIT or humidity >= HUMIDITY_LIMIT) and not abnormally:
         print(2)
         record_status_without_json(status=True)
         abnormally = True
-    elif temperature < 27 and humidity < 60 and abnormally:
+    elif temperature < TEMPERATURE_LIMIT and humidity < HUMIDITY_LIMIT and abnormally:
         print(3)
         record_status_without_json(status=False)
         abnormally = False
-    elif (temperature >= 27 or humidity >= 60) and abnormally:
+    elif (temperature >= TEMPERATURE_LIMIT or humidity >= HUMIDITY_LIMIT) and abnormally:
         print(4)
         pass
 
