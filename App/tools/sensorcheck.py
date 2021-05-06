@@ -1,7 +1,7 @@
 from App.tools.sensorutl import sensorutl
 from App.views.surveillance import record_status_without_json
 from App.tools.scheduler import scheduler
-
+abnormally = False
 def check_sensor():
     with scheduler.app.app_context():
         global abnormally
