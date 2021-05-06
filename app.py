@@ -35,7 +35,7 @@ from App.tools.sensorutl import sensorutl
 from App.tools.camerautl import VideoCamera
 from App.views.surveillance import record_status_without_json
 abnormally = False
-
+scheduler = APScheduler()
 
 def check_sensor():
     with app.app_context():
@@ -62,7 +62,6 @@ def check_sensor():
 
 
 if __name__ == '__main__':
-    scheduler = APScheduler()
     scheduler.init_app(app)
     scheduler.start()
     manager.run()
