@@ -62,6 +62,4 @@ def check_sensor():
 
 
 if __name__ == '__main__':
-    scheduler.init_app(app)
-    scheduler.start()
     manager.run()

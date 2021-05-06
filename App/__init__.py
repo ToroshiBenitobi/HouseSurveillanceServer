@@ -16,6 +16,10 @@ from App.views.surveillance import surveillanceblue
 print('after from App.views.surveillance import surveillanceblue')
 from App.views.sensor import sensorblue
 from App.views.order import orderblue
+
+from flask_apscheduler import APScheduler
+scheduler = APScheduler()
+
 def create_app(env):
     # 创建app,由主入口manage.py进行调用create_app
     app = Flask(__name__)
@@ -46,4 +50,6 @@ def create_app(env):
                    }
                   ]}
     )
+    scheduler.init_app(app)
+    scheduler.start()
     return app
