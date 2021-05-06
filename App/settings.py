@@ -30,16 +30,16 @@ class DevelopConfig(Config):
         "DBNAME": "flask_test"
     }
 
-    JOBS = [{
-        'id': 'job1',
-        'func': 'test:job1',
-        'args': (1, 2),
-        'trigger': 'interval',
-        'seconds': 10
-    }]
-
-    SCHEDULER_TIMEZONE = 'Asia/Shanghai'  # 配置时区
-    SCHEDULER_API_ENABLED = True  # 添加API
+    JOBS = [
+        {
+            'id': 'sensor_check',
+            'func': 'App.tools.sensorcheck:sensor_check',  # 路径：job函数名
+            "trigger": "interval",
+            "seconds": 5
+        }
+    ]
+    SCHEDULER_API_ENABLED = True
+    SQLALCHEMY_ECHO = True
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbinfo)
 
 

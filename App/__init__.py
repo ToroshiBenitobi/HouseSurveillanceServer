@@ -16,7 +16,6 @@ from App.views.surveillance import surveillanceblue
 print('after from App.views.surveillance import surveillanceblue')
 from App.views.sensor import sensorblue
 from App.views.order import orderblue
-from App.tools.scheduler import scheduler
 
 def create_app(env):
     # 创建app,由主入口manage.py进行调用create_app
@@ -39,15 +38,4 @@ def create_app(env):
     app.config['SECRET_KEY'] = 'housebrain will change the world'
     # 设置session的保存时间
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
-    app.config.update(
-        {"SCHEDULER_API_ENABLED": True,
-         "JOBS": [{"id": "check_sensor",
-                   "func": "App.tools.scheduler:check_sensor",
-                   "trigger": "interval",
-                   "seconds": 5
-                   }
-                  ]}
-    )
-    scheduler.init_app(app)
-    scheduler.start()
     return app

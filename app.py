@@ -28,7 +28,10 @@ manager = Manager(app)
 # flask-migrate提供了一个ManagerCommand类，可以附加在flask-script的Manager类实例上
 manager.add_command('db', MigrateCommand)
 # flask的启动方法
-
+from App.tools.scheduler import scheduler
 
 if __name__ == '__main__':
+    if os.environ.get('WERKZEUG_RUN_MAIN') == 'true':  # 解决FLASK DEBUG模式定时任务执行两次
+        scheduler.init_app(app)
+        scheduler.start()
     manager.run()
