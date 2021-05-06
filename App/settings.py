@@ -33,9 +33,15 @@ class DevelopConfig(Config):
     JOBS = [
         {
             'id': 'sensor_check',
-            'func': 'App.tools.sensorcheck:check_sensor',  # 路径：job函数名
+            'func': 'App.tools.sensorcheck:check_sensor',
             "trigger": "interval",
-            "seconds": 5
+            "seconds": 2
+        },
+        {
+            'id': 'reset',
+            'func': 'App.tools.sensorcheck:reset',
+            "trigger": "interval",
+            "seconds": 20
         }
     ]
     SCHEDULER_API_ENABLED = True
