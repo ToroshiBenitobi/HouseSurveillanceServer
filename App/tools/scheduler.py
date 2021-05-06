@@ -3,13 +3,15 @@ from App.tools.sensorutl import sensorutl
 from App.tools.camerautl import VideoCamera
 from App.views.surveillance import record_status_without_json
 from App import create_app
+from app import env
 scheduler = APScheduler()
 abnormally = False
 APP = None
 
+
 def get_app():
     global APP
-    APP = APP if APP is not None else create_app(args)
+    APP = APP if APP is not None else create_app(env)
 
 
 def check_sensor():
