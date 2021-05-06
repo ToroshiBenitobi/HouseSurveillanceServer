@@ -18,8 +18,10 @@ def check_sensor():
         print(temperature, humidity)
         if not abnormally:
             record_status_without_json(status=True)
+            abnormally = True
         else:
             record_status_without_json(status=False)
+            abnormally = False
         # if temperature < TEM_LIMIT and humidity < HUM_LIMIT and not abnormally:
         #     print(1)
         #     pass
