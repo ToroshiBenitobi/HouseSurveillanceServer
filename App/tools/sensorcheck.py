@@ -49,7 +49,7 @@ def record_status_without_json(status):
         return True
     else:
         save_path = camerautl.stop_record()
-        item = session.get('user')
+        item = None
         video = Video()
         video.videoid = video.query.count() + 1
         video.videoname = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
