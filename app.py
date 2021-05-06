@@ -30,36 +30,5 @@ manager.add_command('db', MigrateCommand)
 # flask的启动方法
 
 
-from flask_apscheduler import APScheduler
-from App.tools.sensorutl import sensorutl
-from App.tools.camerautl import VideoCamera
-from App.views.surveillance import record_status_without_json
-abnormally = False
-scheduler = APScheduler()
-
-def check_sensor():
-    with app.app_context():
-        global abnormally
-        TEMPERATURE_LIMIT = 28
-        HUMIDITY_LIMIT = 60
-        temperature = sensorutl.temperature()
-        humidity = sensorutl.humidity()
-        print(temperature, humidity)
-        if temperature < TEMPERATURE_LIMIT and humidity < HUMIDITY_LIMIT and not abnormally:
-            print(1)
-            pass
-        elif (temperature >= TEMPERATURE_LIMIT or humidity >= HUMIDITY_LIMIT) and not abnormally:
-            print(2)
-            record_status_without_json(status=True)
-            abnormally = True
-        elif temperature < TEMPERATURE_LIMIT and humidity < HUMIDITY_LIMIT and abnormally:
-            print(3)
-            record_status_without_json(status=False)
-            abnormally = False
-        elif (temperature >= TEMPERATURE_LIMIT or humidity >= HUMIDITY_LIMIT) and abnormally:
-            print(4)
-            pass
-
-
 if __name__ == '__main__':
     manager.run()
