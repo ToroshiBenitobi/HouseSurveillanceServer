@@ -79,3 +79,26 @@ def download_video():
     videos = Video.query.filter(Video.userid == userid).all()
     print(videos)
     return render_template('/surveillance/downloadvideo.html', videos=videos)
+
+
+def record_status_without_json(status):
+    global camerautl
+    if camerautl is None:
+        camerautl = VideoCamera()
+
+    if status:
+        camerautl.start_record()
+        return jsonify(result="started")
+    else:
+        save_path = camerautl.stop_record()
+        item = session.get('user')
+        video = Video()
+        video.videoid = video.query.count() + 1
+        video.videoname = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+        video.savepath = save_path
+        if item is not None:
+            userid = item.get('id')
+            video.userid = userid
+        db.session.add(video)
+        db.session.commit()
+        return jsonify(result="stopped", save_path=save_path)
