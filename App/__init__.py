@@ -44,7 +44,7 @@ def create_app(env):
     app.config.update(
         {"SCHEDULER_API_ENABLED": True,
          "JOBS": [{"id": "check_sensor",
-                   "func": "app:check_sensor",
+                   "func": "App.tools.scheduler:check_sensor",
                    "trigger": "interval",
                    "seconds": 5
                    }
