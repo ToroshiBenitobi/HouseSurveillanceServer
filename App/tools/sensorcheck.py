@@ -9,11 +9,11 @@ import datetime
 from App.models import db, User, Video
 abnormally = False
 AUTO_ABNORMALLY_RESET = True
-TEM_LOW_LIMIT = 28
-TEM_HIGH_LIMIT = 28
-HUM_LOW_LIMIT = 60
+TEM_LOW_LIMIT = 10
+TEM_HIGH_LIMIT = 30
+HUM_LOW_LIMIT = 10
 HUM_HIGH_LIMIT = 60
-ENTER_NOT_ALLOWED = True
+ENTER_NOT_ALLOWED = False
 def check_sensor():
     with scheduler.app.app_context():
         global abnormally
@@ -35,6 +35,7 @@ def check_sensor():
                 msg += '探测到陌生人闯入、'
             if len(msg) > 0:
                 msg = '【宿舍智能管理系统】警告，宿舍检测到如下异常：\n' + msg[:-1] + '。\n请立即登录系统查看情况。'
+                abnormally = True
                 print(msg)
 
 
