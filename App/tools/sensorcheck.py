@@ -20,7 +20,7 @@ def check_sensor():
         temperature = sensorutl.temperature()
         humidity = sensorutl.humidity()
         is_detected = sensorutl.is_detected()
-        print(temperature, humidity)
+        print('tem:', temperature, ' hum:', humidity, ' detected:', is_detected)
         if not abnormally:
             msg = ''
             if temperature > TEM_HIGH_LIMIT:
