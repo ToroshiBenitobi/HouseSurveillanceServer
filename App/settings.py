@@ -33,7 +33,7 @@ class DevelopConfig(Config):
     JOBS = [
         {
             'id': 'sensor_check',
-            'func': 'App.tools.sensorcheck:sensor_check',  # 路径：job函数名
+            'func': 'App.tools.sensorcheck:check_sensor',  # 路径：job函数名
             "trigger": "interval",
             "seconds": 5
         }
