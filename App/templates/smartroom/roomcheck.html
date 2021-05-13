@@ -6,13 +6,41 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/dist/css/bootstrap.min.css') }}">
     <script src="{{ url_for('static',filename='jquery/dist/jquery.min.js') }}"></script>
 	<script src="{{ url_for('static',filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+     <style type="text/css">
+.div1{
+
+	width:90%;
+    margin:0 auto;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 10px;
+	border: 3px solid #CCC;
+}
+
+
+
+.circle{ line-height:100%; overflow:hidden;  font-family:Tahoma,Helvetica; font-size:18px; color:#aaa;  }
+.circle:hover{ color:#f60;  }
+
+
+#all{
+float:left;
+}
+
+
+
+</style>
 </head>
 <body>
 <form action="" method="post">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">寝室维修</h3>
-            </div>
+
+<div class="divv" id="tr3">
+
+<div class="div1" id="3">
+ <a href="#" ><font size="3" face="微软雅黑" ><strong>寝室维修</strong></font><br /> </a>
+  <div class = "div1" id="div2" style="background:#7c80f061; color:#FFF; border-style:solid; border-color:#CCC;width:90%;border-widht:1px;overflow:hidden;word-break: break-all;">
+
             <div class="panel-body" style="text-align:center;">
                 <div class="form-horizontal">
 
@@ -112,5 +140,11 @@
             </div>
         </div>
     </form>
+
+
+  </div>
+<a href="#" class="circle">◉</a>
+ </div>
+
 </body>
 </html>
