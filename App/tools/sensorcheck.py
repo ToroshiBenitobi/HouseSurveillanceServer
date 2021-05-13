@@ -42,7 +42,7 @@ def check_sensor():
             if humidity < sensor_check_setting.HUM_LOW_LIMIT:
                 msg += '湿度高、'
             if is_detected and sensor_check_setting.ENTER_NOT_ALLOWED:
-                msg += '陌生人闯入、'
+                msg += '闯入、'
             if len(msg) > 0:
                 # msg = '【宿舍智能管理系统】警告，宿舍检测到如下异常：\n' + msg[:-1] + '。\n请立即登录系统查看情况。'
                 sensor_check_setting.abnormally = True
