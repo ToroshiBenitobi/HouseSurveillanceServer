@@ -44,7 +44,7 @@ def check_sensor():
             if is_detected and sensor_check_setting.ENTER_NOT_ALLOWED:
                 msg += '陌生人闯入、'
             if len(msg) > 0:
-                msg = '【宿舍智能管理系统】警告，宿舍检测到如下异常：\n' + msg[:-1] + '。\n请立即登录系统查看情况。'
+                # msg = '【宿舍智能管理系统】警告，宿舍检测到如下异常：\n' + msg[:-1] + '。\n请立即登录系统查看情况。'
                 sensor_check_setting.abnormally = True
                 print(send_sms_single(phone_num='13757703075', template_id='953419', template_param_list=[msg]))
 
