@@ -46,7 +46,8 @@ def check_sensor():
             if len(msg) > 0:
                 # msg = '【宿舍智能管理系统】警告，宿舍检测到如下异常：\n' + msg[:-1] + '。\n请立即登录系统查看情况。'
                 sensor_check_setting.abnormally = True
-                print(send_sms_single(phone_num='19106859233', template_id='953419', template_param_list=[msg[:-1]]))
+                print(msg)
+                # print(send_sms_single(phone_num='19106859233', template_id='953419', template_param_list=[msg[:-1]]))
 
 
 
