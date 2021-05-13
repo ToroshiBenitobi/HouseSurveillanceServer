@@ -2,6 +2,7 @@ from App.tools.sensorutl import sensorutl
 from App.views.surveillance import camerautl
 from App.tools.scheduler import scheduler
 from App.tools.camerautl import VideoCamera
+from App.tools.smsutl import send_sms_single
 from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response, jsonify
 from App.models import db, Order
 import json
@@ -33,19 +34,20 @@ def check_sensor():
         if not sensor_check_setting.abnormally:
             msg = ''
             if temperature > sensor_check_setting.TEM_HIGH_LIMIT:
-                msg += '温度太高、'
+                msg += '温度高、'
             if temperature < sensor_check_setting.TEM_LOW_LIMIT:
-                msg += '温度太低、'
+                msg += '温度低、'
             if humidity > sensor_check_setting.HUM_HIGH_LIMIT:
-                msg += '湿度太高、'
+                msg += '湿度高、'
             if humidity < sensor_check_setting.HUM_LOW_LIMIT:
-                msg += '湿度太高、'
+                msg += '湿度高、'
             if is_detected and sensor_check_setting.ENTER_NOT_ALLOWED:
-                msg += '探测到陌生人闯入、'
+                msg += '陌生人闯入、'
             if len(msg) > 0:
                 msg = '【宿舍智能管理系统】警告，宿舍检测到如下异常：\n' + msg[:-1] + '。\n请立即登录系统查看情况。'
                 sensor_check_setting.abnormally = True
-                print(msg)
+                print(send_sms_single(phone_num='13757703075', template_id='953419', template_param_list=[msg]))
+
 
 
 def reset():
