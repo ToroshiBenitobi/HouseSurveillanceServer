@@ -9,7 +9,7 @@ $(function () {
             url: "/sensor/temperatureinfo" ,
             // data: data,
             success: function (data, status) {
-                intemperature.text(data.value);
+                intemperature.text(data.value + '℃');
             },
             error : function() {
                 intemperature.text('FAILED');
@@ -22,7 +22,7 @@ $(function () {
             url: "/sensor/humidityinfo" ,
             // data: data,
             success: function (data, status) {
-                inhumidity.text(data.value);
+                inhumidity.text(data.value + '%');
             },
             error : function() {
                 inhumidity.text('FAILED');
