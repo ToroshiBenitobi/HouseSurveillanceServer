@@ -41,13 +41,13 @@ float:left;
             <div class="panel-body">
                   <div class="form-group form-inline">
                     <div class="col-md-2">
-                     <img src=/static/img/avatar{{ user.roommate1 }}.jpg class="img-circle col-md-offset-5" width="100px" height="100px">
+                     <img src=/static/img/avatar{{ user.userpic }}.jpg class="img-circle col-md-offset-5" width="100px" height="100px">
                      <label class="col-md-offset-9" style="text-align:left; font-size:18px;">{{ user.username }}</label>
                     </div>
 
                    <form>
                     <div class="form-group col-md-offset-4">
-                        <label  style="text-align:center; font-size:35px;">铁道校区&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ user.roomname }}</label>
+                        <label  style="text-align:center; font-size:35px;">铁道校区&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ user.roomname }}</label>
                     </div>
 
                     <div class="form-group col-md-offset-4">
@@ -75,7 +75,7 @@ float:left;
             <div class="panel-body" >
                 <div class="form-horizontal">
                     <div class="form-group col-md-offset-2">
-                        <img src=/static/img/avatar{{ user.roommate1 }}.jpg class="img-circle col-md-offset-1" width="100px" height="100px">
+                        <img src=/static/img/avatar{{ user1.userpic }}.jpg class="img-circle col-md-offset-1" width="100px" height="100px">
                         <label class="col-md-2 col-md-offset-3" style="text-align:left; font-size:30px;">No.1：{{ user.roommate1 }}</label>
                         <div class="col-md-2">
                             <div class="input-group">
@@ -94,7 +94,7 @@ float:left;
                     </div>
 
                     <div class="form-group col-md-offset-2 ">
-                        <img src=/static/img/2.jpg class="img-circle col-md-offset-1" width="100px" height="100px">
+                        <img src=/static/img/avatar{{ user2.userpic }}.jpg src=/static/img/2.jpg class="img-circle col-md-offset-1" width="100px" height="100px">
                         <label class="col-md-2 col-md-offset-3" style="text-align:left; font-size:30px;">No.2：{{ user.roommate2 }}</label>
                         <div class="col-md-2">
                             <div class="input-group">
@@ -113,7 +113,7 @@ float:left;
                     </div>
 
                     <div class="form-group col-md-offset-2">
-                        <img src=/static/img/2.jpg class="img-circle col-md-offset-1" width="100px" height="100px">
+                        <img src=/static/img/avatar{{ user3.userpic }}.jpg src=/static/img/2.jpg class="img-circle col-md-offset-1" width="100px" height="100px">
                         <label class="col-md-2 col-md-offset-3" style="text-align:left; font-size:30px;">No.3：{{ user.roommate3 }}</label>
                         <div class="col-md-2">
                            <div class="input-group">
