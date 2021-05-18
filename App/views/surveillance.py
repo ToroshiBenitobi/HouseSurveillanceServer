@@ -94,5 +94,7 @@ def upload_face():
             # saving file with new name in exact folder
             upload_folder = 'App/static/faces/'
             file.save(upload_folder+filename)
-            return render_template('index.html')
-    return render_template('index.html')
+            session['msg'] = '成功'
+        else:
+            session['msg'] = '失败'
+    return render_template('/surveillance/uploadfacesuccess.html')
