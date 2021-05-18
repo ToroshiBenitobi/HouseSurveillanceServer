@@ -110,7 +110,7 @@ def load_known_face():
     ]
     known_face_names = [
     ]
-    path = '/static/faces/'
+    path = 'App/static/faces/'
     face_list = os.listdir(path)
     print(face_list)
     # Create arrays of known face encodings and their names
