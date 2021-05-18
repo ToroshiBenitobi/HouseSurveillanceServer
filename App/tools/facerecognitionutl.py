@@ -105,6 +105,7 @@ import os
 # video_capture.release()
 # cv2.destroyAllWindows()
 
+# 读取保存的人脸
 def load_known_face():
     known_face_encodings = [
     ]
@@ -123,6 +124,7 @@ def load_known_face():
     return known_face_names, known_face_encodings
 
 
+# 识别人脸
 def recognize_face(frame, known_face_encodings, known_face_names):
     face_locations = face_recognition.face_locations(frame)
     face_encodings = face_recognition.face_encodings(frame, face_locations)
@@ -147,6 +149,7 @@ def recognize_face(frame, known_face_encodings, known_face_names):
     return face_locations, face_names
 
 
+# 画边框
 def draw_face_frame(frame, face_locations, face_names):
     for (top, right, bottom, left), name in zip(face_locations, face_names):
         # Scale back up face locations since the frame we detected in was scaled to 1/4 size
