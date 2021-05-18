@@ -14,6 +14,8 @@ import time
 import threading
 import os
 import datetime
+from App.tools.facerecognitionutl import load_known_face, face_recognition, draw_face_frame
+
 
 # class Streaming(object):
 #     def __init__(self, save_path='', angle=0):
@@ -70,7 +72,7 @@ import datetime
 
 
 class VideoCamera(object):
-    def __init__(self, root_path = "App/static/savevideos/"):
+    def __init__(self, root_path="App/static/savevideos/"):
         # 打开摄像头， 0代表笔记本内置摄像头
         self.cap = cv2.VideoCapture(0)
         self.root_path = root_path
@@ -79,6 +81,9 @@ class VideoCamera(object):
         # 初始化视频录制环境
         self.is_record = False
         self.out = None
+        self.face_locations = []
+        self.face_names = []
+        self.known_face_names, self.known_face_encodings = load_known_face()
 
     # 退出程序释放摄像头
     def __del__(self):
@@ -86,8 +91,10 @@ class VideoCamera(object):
 
     def get_frame(self):
         ret, frame = self.cap.read()
-
         if ret:
+            # 人脸识别
+            self.face_locations, self.face_names = face_recognition(frame, self.known_face_encodings, self.known_face_names)
+            draw_face_frame(frame, self.face_locations, self.face_names)
             ret, jpeg = cv2.imencode('.jpg', frame)
 
             # 视频录制

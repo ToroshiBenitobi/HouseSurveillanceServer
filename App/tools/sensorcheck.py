@@ -71,24 +71,24 @@ def reset():
         #     pass
 
 
-def record_status_without_json(status):
-    global camerautl
-    if camerautl is None:
-        camerautl = VideoCamera()
-
-    if status:
-        camerautl.start_record()
-        return True
-    else:
-        save_path = camerautl.stop_record()
-        item = None
-        video = Video()
-        video.videoid = video.query.count() + 1
-        video.videoname = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-        video.savepath = save_path
-        if item is not None:
-            userid = item.get('id')
-            video.userid = userid
-        db.session.add(video)
-        db.session.commit()
-        return False
+# def record_status_without_json(status):
+#     global camerautl
+#     if camerautl is None:
+#         camerautl = VideoCamera()
+#
+#     if status:
+#         camerautl.start_record()
+#         return True
+#     else:
+#         save_path = camerautl.stop_record()
+#         item = None
+#         video = Video()
+#         video.videoid = video.query.count() + 1
+#         video.videoname = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+#         video.savepath = save_path
+#         if item is not None:
+#             userid = item.get('id')
+#             video.userid = userid
+#         db.session.add(video)
+#         db.session.commit()
+#         return False

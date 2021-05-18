@@ -8,10 +8,7 @@ surveillanceblue = Blueprint('surveillanceblue', __name__)
 camerautl = None
 global_frame = None
 SAVE_PATH = "/home/pi/Videos/Test"  # will be created if doesnt exist
-if True:
-    from App.tools.camerautl import VideoCamera
-else:
-    from App.toolsvirtual.camerautl import VideoCamera
+from App.tools.camerautl import VideoCamera
 
 
 @surveillanceblue.route('/surveillance/camera', methods=['POST', 'GET'])
