@@ -76,3 +76,18 @@ def download_video():
     videos = Video.query.filter(Video.userid == userid).all()
     print(videos)
     return render_template('/surveillance/downloadvideo.html', videos=videos)
+
+
+@surveillanceblue.route('/surveillance/faceupload', methods=['POST', 'GET'])
+def upload_face():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            contents = file.read()
+            filename = file.filename
+            # creating a folder if there is no one yet
+            # saving file with new name in exact folder
+            upload_folder = 'App/static/faces/'
+            file.save(upload_folder+filename)
+            return render_template('index.html')
+    return render_template('index.html')
