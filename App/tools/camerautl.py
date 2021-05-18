@@ -14,7 +14,7 @@ import time
 import threading
 import os
 import datetime
-from App.tools.facerecognitionutl import load_known_face, face_recognition, draw_face_frame
+from App.tools.facerecognitionutl import load_known_face, recognize_face, draw_face_frame
 
 
 # class Streaming(object):
@@ -93,7 +93,7 @@ class VideoCamera(object):
         ret, frame = self.cap.read()
         if ret:
             # 人脸识别
-            self.face_locations, self.face_names = face_recognition(frame, self.known_face_encodings, self.known_face_names)
+            self.face_locations, self.face_names = recognize_face(frame, self.known_face_encodings, self.known_face_names)
             draw_face_frame(frame, self.face_locations, self.face_names)
             ret, jpeg = cv2.imencode('.jpg', frame)
 

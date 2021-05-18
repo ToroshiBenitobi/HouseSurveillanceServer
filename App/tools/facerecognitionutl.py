@@ -123,7 +123,7 @@ def load_known_face():
     return known_face_names, known_face_encodings
 
 
-def face_recognition(frame, known_face_encodings, known_face_names):
+def recognize_face(frame, known_face_encodings, known_face_names):
     face_locations = face_recognition.face_locations(frame)
     face_encodings = face_recognition.face_encodings(frame, face_locations)
 
