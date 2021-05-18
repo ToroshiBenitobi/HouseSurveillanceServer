@@ -113,14 +113,12 @@ def load_known_face():
     ]
     path = 'App/static/faces/'
     face_list = os.listdir(path)
-    print(face_list)
     # Create arrays of known face encodings and their names
     for face in face_list:
         face_image = face_recognition.load_image_file(path + face)
         face_encoding = face_recognition.face_encodings(face_image)[0]
         known_face_encodings.append(face_encoding)
         known_face_names.append(face[:-4])
-    print(known_face_names)
     return known_face_names, known_face_encodings
 
 
@@ -130,7 +128,6 @@ def recognize_face(frame, known_face_encodings, known_face_names):
     rgb_small_frame = small_frame[:, :, ::-1]
     face_locations = face_recognition.face_locations(rgb_small_frame)
     face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
-    print(face_locations)
     face_names = []
     for face_encoding in face_encodings:
         # See if the face is a match for the known face(s)
