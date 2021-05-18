@@ -128,7 +128,7 @@ def load_known_face():
 def recognize_face(frame, known_face_encodings, known_face_names):
     face_locations = face_recognition.face_locations(frame)
     face_encodings = face_recognition.face_encodings(frame, face_locations)
-
+    print(face_locations)
     face_names = []
     for face_encoding in face_encodings:
         # See if the face is a match for the known face(s)
