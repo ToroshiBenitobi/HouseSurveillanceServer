@@ -16,6 +16,11 @@ def camera():
     return render_template('surveillance/camera.html')
 
 
+@surveillanceblue.route('/surveillance/managefacedata', methods=['POST', 'GET'])
+def manage_face_data():
+    return render_template('surveillance/managefacedata.html')
+
+
 def gen():
     global camerautl
     global global_frame
