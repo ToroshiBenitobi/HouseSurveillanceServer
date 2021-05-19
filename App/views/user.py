@@ -151,6 +151,7 @@ def schedule_view():
     userid = user.get('id')
     class_schdule = {}
     classes = ClassSchedule.query.filter(ClassSchedule.user == user.get("id")).all()
+    print(classes)
     for single_class in classes:
         class_schdule[single_class.get('time')] = single_class.get('text')
     print(class_schdule)
