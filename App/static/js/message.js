@@ -5,6 +5,8 @@ $(document).ready(function () {
 
     $("#message-form").submit(handleFormSubmit);
     $("#message-container").empty();
+    $("#sent-result").hide()
+    $("#sent-fail").hide()
     getMessages();
 });
 
@@ -37,7 +39,7 @@ function addMessage(msg) {
             displayResultStatus(data.result);
             msg = data.message
             if (msg) {
-                showAddedMessages(msg.text, msg.user, msg.datetime);}
+                showAddedMessages(msg);}
         }
     );
 }
@@ -48,7 +50,7 @@ function addMessage(msg) {
  */
 function displayResultStatus(resultMsg) {
     var notificationArea;
-    if (resultMsg === "Message Received") {
+    if (resultMsg === "已发送消息") {
         notificationArea = $("#sent-result");}
     else {
         notificationArea = $("#sent-fail");}
@@ -82,7 +84,7 @@ function displayResultStatus(resultMsg) {
     });
 }
 
-function showAddedMessages(msg, user, datetime) {
+function showAddedMessages(message) {
     $("#message-container").prepend("<li class='list-group-item'>" + message['text'] + " —— " + message['user'] + " " + message['datetime'] + "</li>");
 }
 
