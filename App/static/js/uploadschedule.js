@@ -50,7 +50,7 @@ function handleFormSubmit(evt) {
     }
     console.log(classTime);
     console.log(text);
-    // addMessage(msg);
+    addCourse(msg);
     // Reset the message container to be empty
     inputClassName.val('');
     inputTeacher.val('');
@@ -64,17 +64,13 @@ function handleFormSubmit(evt) {
 /**
  * Makes AJAX call to the server and the message to it.
  */
-function addMessage(msg) {
+function addCourse(classTime, text) {
     $.post(
-        "/message/wall/add",
-        {'m': msg},
+        "/myinfo/uploadschedule",
+        {'time': classTime, 'text': text},
         function (data) {
-            console.log("addMessage: ", data);
-            displayResultStatus(data.result);
-            msg = data.message
-            if (msg) {
-                showAddedMessages(msg);
-            }
+            console.log('Successfully add course.');
+
         }
     );
 }
