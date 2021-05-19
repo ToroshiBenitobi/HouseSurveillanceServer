@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/dist/css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static',filename='jquery/dist/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
 <form action="/surveillance/faceupload" method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
+<div class="input-group">
+    <label class="input-group-btn">
+        <span class="btn btn-primary">
+            Choose File<input type=file name=file>
+        </span>
+    </label>
+    <input type="text" class="form-control" readonly="">
+</div>
+<input type=submit value=Upload>
 </form>
-
+<script>
+    $(document).on('change', ':file', function() {
+    var input = $(this),
+    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.parent().parent().next(':text').val(label);
+});
+</script>
 </body>
 </html>
