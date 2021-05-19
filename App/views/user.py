@@ -152,8 +152,10 @@ def schedule_view():
     class_schdule = {}
     classes = ClassSchedule.query.filter(ClassSchedule.user == user.get("id")).all()
     print(classes)
+    print(type(classes))
     for single_class in classes:
         print(single_class)
+        print(type(single_class))
         class_schdule[single_class['time']] = single_class['text']
     print(class_schdule)
     return render_template('myinfo/schedule.html', user=user, class_schdule=class_schdule)
