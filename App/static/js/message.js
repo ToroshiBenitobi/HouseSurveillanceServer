@@ -88,8 +88,7 @@ function showAddedMessages(msg) {
 function getMessages() {
     $.get("/message/wall/list", function(data){
         $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
-        var result = JSON.parse(data)
-        var messages = result['messages']
+        var messages = data['messages']
         for(var i=0; i<messages.length; i++) {
             console.info(i + ":" + messages[i]);
         }
