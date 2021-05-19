@@ -143,3 +143,11 @@ def roomcheck():
         db.session.commit()
 
         return render_template('smartroom/roomcheck.html', room=room, message='修改成功')
+
+
+# 课表界面
+@userblue.route('/myinfo/schedule', methods=['POST', 'GET'])
+def schedule_view():
+    item = session.get('user')
+    return render_template('myinfo/schedule.html', user=item)
+
