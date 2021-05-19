@@ -2,7 +2,7 @@
 import hashlib
 # 在这个user中依次引入Blueprint（蓝图，用于子系统的分离）、render_template（模板渲染）、
 # session（用户对话）、redirect（重定向）、url_for（Flask中提供的URL生成函数）
-from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response
+from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response, jsonify
 # 这里注意要导入models中的models，而不是extends中的models
 from App.models import db, User, Room, ClassSchedule
 
@@ -148,25 +148,24 @@ def roomcheck():
 @userblue.route('/myinfo/schedule', methods=['POST', 'GET'])
 def schedule_view():
     user = session.get('user')
-    print(user)
-    print(type(user))
     class_schdule = {}
     classes = ClassSchedule.query.filter(ClassSchedule.user == user.get("id")).all()
-    print(classes)
-    print(type(classes))
     for single_class in classes:
-        print(single_class)
-        print(type(single_class))
-        print('00000000000000000000000000000000000')
-        print(single_class.user)
-        print(single_class.time)
         class_schdule[single_class.time] = single_class.text
-    print(class_schdule)
     return render_template('myinfo/schedule.html', user=user, class_schdule=class_schdule)
 
 
 # 读取课表
 @userblue.route('/myinfo/uploadschedule', methods=['POST', 'GET'])
 def upload_schedule():
-    user = session.get('user')
-    return render_template('myinfo/schedule.html', user=user)
+    item = session.get('user')
+    user = item.get('username')
+    time = request.form.get('time')
+    text = request.form.get('text')
+    class_schedule = ClassSchedule()
+    class_schedule.user = user
+    class_schedule.time = time
+    class_schedule.text = text
+    db.session.add(class_schedule)
+    db.session.commit()
+    return jsonify(result="upload success")
