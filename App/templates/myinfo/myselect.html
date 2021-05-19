@@ -4,127 +4,122 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/dist/css/bootstrap.min.css') }}">
 </head>
 <body>
+<div class="container">
     <form>
-       <div class="divv" id="tr3">
+        <div class="divv" id="tr3">
 
-<div class="div1" id="3">
- <a href="#" ><font size="3" face="微软雅黑" ><strong>查看信息</strong></font><br /> </a>
-  <div class = "div1" id="div2" style="background:#7c80f061; color:#FFF; border-style:solid; border-color:#CCC;width:90%;border-widht:1px;overflow:hidden;word-break: break-all;">
+            <div class="div1" id="3">
+                <a href="#"><font size="3" face="微软雅黑"><strong>查看信息</strong></font><br/> </a>
+                <div class="div1" id="div2"
+                     style="background:#7c80f061; color:#FFF; border-style:solid; border-color:#CCC;width:90%;border-widht:1px;overflow:hidden;word-break: break-all;">
 
-      <div class="panel-heading">
-                <h3 class="panel-title">用户资料查看</h3>
-            </div>
-            <div class="panel-body" style="text-align:center;">
-                <div class="form-horizontal">
-
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;"></label>
-                        <div class="col-md-2">
-                            <img src={{ user.userpic }}  class="img-circle" alt="个人头像">
-                        </div>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">用户资料查看</h3>
                     </div>
+                    <div class="panel-body" style="text-align:center;">
+                        <div class="form-horizontal">
 
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;">姓名</label>
-                        <div class="col-md-2">
-                            <div class="form-control col-md-2">
-                                {{ user.username }}
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;"></label>
+                                <div class="col-md-2">
+                                    <img src={{ user.userpic }}  class="img-circle" alt="个人头像">
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;">学号</label>
-                        <div class="col-md-2">
-                            <div class="form-control col-md-2">
-                                {{ user.number }}
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;">姓名</label>
+                                <div class="col-md-2">
+                                    <div class="form-control col-md-2">
+                                        {{ user.username }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;">班级</label>
-                        <div class="col-md-2">
-                            <div class="form-control col-md-2">
-                                {{ user.myclass }}
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;">学号</label>
+                                <div class="col-md-2">
+                                    <div class="form-control col-md-2">
+                                        {{ user.number }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;">寝室</label>
-                        <div class="col-md-2">
-                            <div class="form-control col-md-2">
-                                {{ user.roomname }}
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;">班级</label>
+                                <div class="col-md-2">
+                                    <div class="form-control col-md-2">
+                                        {{ user.myclass }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;">室友</label>
-                        <div class="col-md-2">
-                            <div class="form-control col-md-2">
-                                {{ user.roommate1 }},{{ user.roommate2 }},{{ user.roommate3 }}
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;">寝室</label>
+                                <div class="col-md-2">
+                                    <div class="form-control col-md-2">
+                                        {{ user.roomname }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;">绑定手机号</label>
-                        <div class="col-md-2">
-                            <div class="form-control col-md-2">
-                                {{ user.phone }}
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;">室友</label>
+                                <div class="col-md-2">
+                                    <div class="form-control col-md-2">
+                                        {{ user.roommate1 }},{{ user.roommate2 }},{{ user.roommate3 }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;">绑定邮箱号</label>
-                        <div class="col-md-2">
-                            <div class="form-control col-md-2">
-                                {{ user.email }}
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;">绑定手机号</label>
+                                <div class="col-md-2">
+                                    <div class="form-control col-md-2">
+                                        {{ user.phone }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group col-md-offset-4">
-                        <label class="col-md-2 col-md-offset-3" style="text-align:right; font-size:18px;">个人简介</label>
-                        <div class="col-md-2">
-                            <div class="form-control col-md-2">
-                                {{ user.introduction }}
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;">绑定邮箱号</label>
+                                <div class="col-md-2">
+                                    <div class="form-control col-md-2">
+                                        {{ user.email }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-offset-4">
+                                <label class="col-md-2 col-md-offset-3"
+                                       style="text-align:right; font-size:18px;">个人简介</label>
+                                <div class="col-md-2">
+                                    <div class="form-control col-md-2">
+                                        {{ user.introduction }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <a href="#" class="circle">◉</a>
             </div>
-  </div>
-<a href="#" class="circle">◉</a>
- </div>
 
-</div>
+        </div>
 
 
     </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 {#     <input class="input-medium search-query" type="text" value={{ user.username }}>#}
