@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Message Wall</title>
+
+  <!-- Bootstrap Core CSS -->
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static',filename='css/message.js') }}" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 page-header">
+      <h1>
+        <span class="glyphicon glyphicon-star"></span>
+        Message Wall
+      </h1>
+
+      <p class="lead">Send messages to our server and get updates here.</p>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Send Message
+          </h3>
+        </div>
+        <div class="panel-body">
+          <form role="form" id="message-form">
+            <div class="form-group">
+              <textarea class="form-control" name="m" id="message"
+                        placeholder="Enter message"></textarea>
+            </div>
+            <button id="message-send" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+            <button id="message-reset" type="button" class="btn btn-info">
+              Clear
+            </button>
+          </form>
+
+          <p id="sent-result" class="alert alert-success"></p>
+          <p id="sent-fail" class="alert alert-danger"></p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-list-alt"></span>
+            Messages
+          </h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group" id="message-container">
+            <li class="list-group-item">Placeholder message</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+
+<script src="{{ url_for('static',filename='jquery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/message.js') }}"></script>
+<!-- Message Wall JS -->
+
+</body>
+
+</html>
