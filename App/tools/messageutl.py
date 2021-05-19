@@ -12,7 +12,7 @@ from html.parser import HTMLParser
 # test message as the default.
 
 DEFAULT_MESSAGES = [
-    {'message': 'Welcome! (this is the built-in first message)'},
+    {'message': '请留言'},
 ]
 
 
@@ -39,6 +39,7 @@ def wall_list():
         "result": "OK",
         "messages": session.setdefault('wall', DEFAULT_MESSAGES),
     }
+
 
 def wall_last():
     """ Return a dictionary with the result code and the last message submitted."""
@@ -69,6 +70,7 @@ def wall_add(msg):
 
     return result
 
+
 def wall_clear():
     session["wall"] = DEFAULT_MESSAGES
 
@@ -80,5 +82,6 @@ def wall_clear():
 
 class RemoveHTML(HTMLParser):
     out = ""
-    def handle_data(self,data):
+
+    def handle_data(self, data):
         self.out = self.out + data

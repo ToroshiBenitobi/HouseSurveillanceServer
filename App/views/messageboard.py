@@ -58,7 +58,7 @@ def add_message():
     # (to get things from a GET response, we've used request.args.get();
     # this is the equivalent for getting things from a POST response)
     msg = request.form.get('m').strip()
-
+    print(msg)
     if msg is None:
         result = wall_error("You did not specify a message to set.")
 
