@@ -36,7 +36,7 @@ function addMessage(msg) {
             console.log("addMessage: ", data);
             displayResultStatus(data.result);
             if (msg) {
-                getMessages(data);}
+                getMessages(msg);}
         }
     );
 }
@@ -82,9 +82,7 @@ function displayResultStatus(resultMsg) {
 }
 
 function getMessages(data) {
-    $.get("/message/wall/last", function(data){
-        $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
-    });
+    $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
 }
 
 

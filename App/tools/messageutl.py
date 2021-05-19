@@ -9,6 +9,7 @@ from flask import session
 from html.parser import HTMLParser
 from App.models import db, Message
 from datetime import datetime
+
 # So that you can play with the `get` API, we return a single
 # test message as the default.
 
@@ -44,7 +45,7 @@ def wall_list():
 
 def wall_last():
     """ Return a dictionary with the result code and the last message submitted."""
-
+    Message.query.first()
     return session["wall"][-1]["message"]
 
 
@@ -74,9 +75,7 @@ def wall_add(msg, user):
     db.session.add(message)
     db.session.commit()
 
-
-    result = wall_list()
-    result["result"] = "Message Received"
+    result = {"result": "Message Received", "messages": msg}
 
     return result
 
