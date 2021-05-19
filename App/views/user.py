@@ -129,7 +129,6 @@ def mainView():
     return render_template('smartroom/mainView.html', user=user, user1=user1, user2=user2, user3=user3, room=room)
 
 
-
 # 寝室维修界面
 @userblue.route('/smartroom/roomcheck', methods=['POST', 'GET'])
 def roomcheck():
@@ -158,10 +157,8 @@ def schedule_view():
     return render_template('myinfo/schedule.html', user=user, class_schdule=class_schdule)
 
 
-
 # 读取课表
-@userblue.route('/myinfo/getschedule', methods=['GET'])
-def schedule_view():
+@userblue.route('/myinfo/uploadschedule', methods=['POST', 'GET'])
+def upload_schedule():
     user = session.get('user')
     return render_template('myinfo/schedule.html', user=user)
-
