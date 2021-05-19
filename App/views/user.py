@@ -158,9 +158,9 @@ def schedule_view():
         print(single_class)
         print(type(single_class))
         print('00000000000000000000000000000000000')
-        print(single_class.get('user'))
-        print(single_class.get('time'))
-        class_schdule[1] = single_class.get('time')
+        print(single_class.user)
+        print(single_class.time)
+        class_schdule[single_class.user] = single_class.time
     print(class_schdule)
     return render_template('myinfo/schedule.html', user=user, class_schdule=class_schdule)
 
