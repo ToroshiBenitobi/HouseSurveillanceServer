@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     $("#message-form").submit(handleFormSubmit);
     $("#message-container").empty();
-    $("#sent-result").hide()
-    $("#sent-fail").hide()
+    $("#sent-result").hide();
+    $("#sent-fail").hide();
     getMessages();
 });
 

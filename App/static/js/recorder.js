@@ -1,3 +1,8 @@
+$(document).ready(function () {
+    $("#msg").hide();
+});
+
+
 var buttonRecord = document.getElementById("record");
 var buttonStop = document.getElementById("stop");
 
@@ -36,9 +41,15 @@ buttonStop.onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var msg = document.getElementById("msg");
             var result = JSON.parse(xhr.responseText);
-            msg.innerText = result['result'];
+            var msg = $('#msg');
+            msg.text(result['result']);
+            msg.slideDown(function () {
+                var self = this;
+                setTimeout(function () {
+                    $(self).slideUp();
+                }, 2000);
+            });
             // set download link
             var downloadLink = document.getElementById("download");
             downloadLink.text = "下载";
