@@ -1,9 +1,7 @@
 $(document).ready(function () {
-    $("#message-form").submit(handleFormSubmit);
-    $("#message-container").empty();
-    $("#sent-result").hide();
-    $("#sent-fail").hide();
-    getMessages();
+    $("#schedule-form").submit(handleFormSubmit);
+    $("#inputDay").val('');
+    $("#inputTime").val('');
 });
 
 
@@ -12,14 +10,26 @@ $(document).ready(function () {
  */
 function handleFormSubmit(evt) {
     evt.preventDefault();
+    var inputDay = $("#inputDay");
+    var inputTime = $("#inputTime");
+    var inputClassName = $("#inputClassName");
+    var inputTeacher = $("#inputTeacher");
+    var inputWeek = $("#inputWeek");
+    var inputLocation = $("#inputLocation");
+    var className = inputClassName.val();
 
-    var textArea = $("#message");
-    var msg = textArea.val();
-
-    console.log("handleFormSubmit: ", msg);
+    var text = '<b>' + inputClassName.val() + '</b><br>' + inputTeacher.val() + '<br>' + inputWeek.val() + '周 ， ' + inputLocation.val() + '<br>';
+    console.log(inputDay.val());
+    console.log(inputTime.val());
+    console.log(text);
     addMessage(msg);
     // Reset the message container to be empty
-    textArea.val("");
+    inputClassName.val('');
+    inputTeacher.val('');
+    inputWeek.val('');
+    inputLocation.val('');
+    inputDay.val('');
+    inputTime.val('');
 }
 
 
