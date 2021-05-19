@@ -148,7 +148,8 @@ def roomcheck():
 @userblue.route('/myinfo/schedule', methods=['POST', 'GET'])
 def schedule_view():
     user = session.get('user')
-    userid = user.get('id')
+    print(user)
+    print(type(user))
     class_schdule = {}
     classes = ClassSchedule.query.filter(ClassSchedule.user == user.get("id")).all()
     print(classes)
