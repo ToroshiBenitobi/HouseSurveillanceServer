@@ -4,7 +4,7 @@ import hashlib
 # session（用户对话）、redirect（重定向）、url_for（Flask中提供的URL生成函数）
 from flask import Flask, Blueprint, render_template, session, redirect, url_for, request, Response
 # 这里注意要导入models中的models，而不是extends中的models
-from App.models import db, User, Room
+from App.models import db, User, Room, ClassSchedule
 
 # 申明一个蓝图对象user
 userblue = Blueprint('userblue', __name__)
@@ -148,6 +148,20 @@ def roomcheck():
 # 课表界面
 @userblue.route('/myinfo/schedule', methods=['POST', 'GET'])
 def schedule_view():
-    item = session.get('user')
-    return render_template('myinfo/schedule.html', user=item)
+    user = session.get('user')
+    userid = user.get('id')
+    class_schdule = {}
+    classes = ClassSchedule.query.filter(ClassSchedule.user == user.get("id")).all()
+    for single_class in classes:
+        class_schdule[single_class.get('time')] = single_class.get('text')
+    print(class_schdule)
+    return render_template('myinfo/schedule.html', user=user, class_schdule=class_schdule)
+
+
+
+# 读取课表
+@userblue.route('/myinfo/getschedule', methods=['GET'])
+def schedule_view():
+    user = session.get('user')
+    return render_template('myinfo/schedule.html', user=user)
 

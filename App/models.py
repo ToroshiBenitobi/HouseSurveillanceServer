@@ -81,3 +81,10 @@ class Message(db.Model):
     user = db.Column(db.String(255))
     datetime = db.Column(db.DateTime, default=datetime.now)
     text = db.Column(db.String(255))
+
+
+# ClassSchedule
+class ClassSchedule(db.Model):
+    user = db.Column(db.String(10))
+    time = db.Column(db.String(10))
+    text = db.Column(db.String(255))
