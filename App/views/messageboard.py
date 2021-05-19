@@ -66,7 +66,9 @@ def add_message():
         result = wall_error("Your message is empty")
 
     else:
-        result = wall_add(msg)
+        user = session.get('user')
+        username = user.get('username')
+        result = wall_add(msg, username)
 
     return _convert_to_JSON(result)
 

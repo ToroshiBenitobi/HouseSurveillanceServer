@@ -67,9 +67,17 @@ class Order(db.Model):
     id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
+# Video
 class Video(db.Model):
-    videoid = db.Column(db.Integer, primary_key=True) # id of video
-    savepath = db.Column(db.String(50)) # path where video saved
-    videoname = db.Column(db.String(50)) # name of video
+    videoid = db.Column(db.Integer, primary_key=True)  # id of video
+    savepath = db.Column(db.String(50))  # path where video saved
+    videoname = db.Column(db.String(50))  # name of video
     userid = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+
+# Message
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String(255))
+    datetime = db.Column(db.DateTime)
+    text = db.Column(db.String(255))
