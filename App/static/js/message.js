@@ -86,7 +86,7 @@ function showAddedMessages(msg) {
 }
 
 function getMessages(msg) {
-    $.get("/api/wall/list", function(data){
+    $.get("/message/wall/list", function(data){
         $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
         console.log(data)
     });
