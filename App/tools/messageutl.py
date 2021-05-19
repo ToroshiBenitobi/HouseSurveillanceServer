@@ -37,6 +37,7 @@ def wall_list():
         returns: dictionary with messages list + result code.
     """
     messages = Message.query.all()
+    print(messages)
     return {
         "result": "OK",
         "messages": messages,
