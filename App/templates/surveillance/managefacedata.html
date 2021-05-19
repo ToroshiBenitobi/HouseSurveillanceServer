@@ -8,6 +8,7 @@
 	<script src="{{ url_for('static',filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
+<h2>上传宿舍成员照片，文件名为名字。</h2>
 <form action="/surveillance/faceupload" method=post enctype=multipart/form-data>
 <div class="input-group">
     <label class="input-group-btn">
@@ -15,9 +16,8 @@
             Choose File<input type=file name=file>
         </span>
     </label>
-    <input type="text" class="form-control" readonly="">
+    <input class="btn btn-primary" type=submit value=上传>
 </div>
-<input type=submit value=Upload>
 </form>
 <script>
     $(document).on('change', ':file', function() {
