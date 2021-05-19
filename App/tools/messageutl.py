@@ -63,10 +63,6 @@ def wall_add(msg, user):
     parser.feed(msg)
     msg = parser.out
 
-    wall_dict = {
-        "message": msg,
-    }
-
     # session.setdefault('wall', []).append(wall_dict)
     message = Message()
     message.id = message.query.count() + 1
@@ -76,8 +72,8 @@ def wall_add(msg, user):
 
     db.session.add(message)
     db.session.commit()
-
-    result = {"result": "已发送消息", "messages": msg}
+    message = to_json(message)
+    result = {"result": "已发送消息", "message": message}
 
     return result
 

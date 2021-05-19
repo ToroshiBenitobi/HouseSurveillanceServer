@@ -35,8 +35,9 @@ function addMessage(msg) {
         function (data) {
             console.log("addMessage: ", data);
             displayResultStatus(data.result);
+            msg = data.message
             if (msg) {
-                showAddedMessages(msg);}
+                showAddedMessages(msg.text, msg.user, msg.datetime);}
         }
     );
 }
@@ -81,8 +82,8 @@ function displayResultStatus(resultMsg) {
     });
 }
 
-function showAddedMessages(msg) {
-    $("#message-container").prepend("<li class='list-group-item'>" + msg + "</li>");
+function showAddedMessages(msg, user, datetime) {
+    $("#message-container").prepend("<li class='list-group-item'>" + message['text'] + " —— " + message['user'] + " " + message['datetime'] + "</li>");
 }
 
 function getMessages() {
