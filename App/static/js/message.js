@@ -85,10 +85,14 @@ function showAddedMessages(msg) {
     $("#message-container").prepend("<li class='list-group-item'>" + msg + "</li>");
 }
 
-function getMessages(msg) {
+function getMessages() {
     $.get("/message/wall/list", function(data){
         $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
-        console.log(data)
+        var result = JSON.parse(data)
+        var messages = result['messages']
+        for(var i=0; i<messages.length; i++) {
+            console.info(i + ":" + messages[i]);
+        }
     });
 }
 
@@ -96,7 +100,7 @@ function getMessages(msg) {
 $("#message-reset").click(function(){
     $.get('/message/wall/clear', function(result){
         $("#message-container").empty();
-        getMessages(result);
+        getMessages();
     });
 });
 
