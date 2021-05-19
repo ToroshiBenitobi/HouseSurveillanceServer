@@ -105,7 +105,8 @@ def to_json(model):
     # json['pk'] = getattr(model, 'id')
     for col in model._sa_class_manager.mapper.mapped_table.columns:
         # json['fields'][col.name] = getattr(model, col.name)
-        json[col.name] = getattr(model, col.name)
+        json[col.name] = str(getattr(model, col.name))
+
     # return dumps([json])
     return json
 
