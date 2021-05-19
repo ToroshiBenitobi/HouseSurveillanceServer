@@ -13,16 +13,16 @@
 
 <body>
 
-<center><h1>Camera</h1></center>
+<center><h1>摄像头</h1></center>
 <div class="top">
     <div class="recorder" id="recorder" align="center">
-        <button id="record" class="btn">Record</button>
-        <button id="stop" class="btn">Stop</button>
+        <button id="record" class="btn">开始录像</button>
+        <button id="stop" class="btn">停止录像</button>
         <a id="download"></a>
         <script type="text/javascript" src="{{ url_for('static', filename='js/recorder.js') }}"></script>
     </div>
 </div>
-<div style="text-align: center;" id="msg"></div>
+<p class="alert alert-success" style="text-align: center;" id="msg"></p>
 <div style="text-align: center;"><img width="640" height="480" id="video" src="{{ url_for('surveillanceblue.streaming') }}"></div>
 
 </body>

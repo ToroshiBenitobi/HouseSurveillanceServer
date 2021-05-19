@@ -41,7 +41,7 @@ buttonStop.onclick = function () {
             msg.innerText = result['result'];
             // set download link
             var downloadLink = document.getElementById("download");
-            downloadLink.text = "Download";
+            downloadLink.text = "下载";
             downloadLink.href = result['save_path'];
             console.log('end recording');
         }
