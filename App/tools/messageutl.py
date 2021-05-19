@@ -83,8 +83,7 @@ def wall_add(msg, user):
 
 
 def wall_clear():
-
-    Message.query.all().delete()
+    db.session.delete(Message.query.all())
     result = {"result": "已清除消息板"}
     return result
 
