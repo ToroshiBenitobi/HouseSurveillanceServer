@@ -87,10 +87,10 @@ function showAddedMessages(msg) {
 
 function getMessages() {
     $.get("/message/wall/list", function(data){
-        $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
         var messages = data['messages']
         for(var i=0; i<messages.length; i++) {
-            console.info(i + ":" + messages[i]);
+            var message = messages[i]
+            $("#message-container").prepend("<li class='list-group-item'>" + message['text'] + "---" + message['user'] + " " + message['datetime'] + "</li>");
         }
     });
 }
