@@ -16,6 +16,7 @@ from App.views.surveillance import surveillanceblue
 print('after from App.views.surveillance import surveillanceblue')
 from App.views.sensor import sensorblue
 from App.views.order import orderblue
+from App.views.messageboard import boardblue
 
 def create_app(env):
     # 创建app,由主入口manage.py进行调用create_app
@@ -32,6 +33,7 @@ def create_app(env):
     app.register_blueprint(orderblue)
     app.register_blueprint(surveillanceblue)
     app.register_blueprint(sensorblue)
+    app.register_blueprint(boardblue)
     # 初始化第三方扩展库，包括SQLAlchemy及Migrate等第三方库
     init_ext(app=app)
     # 配置Flask-WTF，即设置session，通过加密或签名以不同的方式提升安全性
