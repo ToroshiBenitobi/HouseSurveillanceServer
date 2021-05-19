@@ -36,10 +36,10 @@ def wall_list():
 
         returns: dictionary with messages list + result code.
     """
-
+    messages = Message.query.all()
     return {
         "result": "OK",
-        "messages": session.setdefault('wall', DEFAULT_MESSAGES),
+        "messages": messages,
     }
 
 

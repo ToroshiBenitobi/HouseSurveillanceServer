@@ -36,7 +36,7 @@ function addMessage(msg) {
             console.log("addMessage: ", data);
             displayResultStatus(data.result);
             if (msg) {
-                getMessages(msg);}
+                showAddedMessages(msg);}
         }
     );
 }
@@ -81,8 +81,15 @@ function displayResultStatus(resultMsg) {
     });
 }
 
-function getMessages(data) {
-    $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
+function showAddedMessages(msg) {
+    $("#message-container").prepend("<li class='list-group-item'>" + msg + "</li>");
+}
+
+function getMessages(msg) {
+    $.get("/api/wall/list", function(data){
+        $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
+        console.log(data)
+    });
 }
 
 
