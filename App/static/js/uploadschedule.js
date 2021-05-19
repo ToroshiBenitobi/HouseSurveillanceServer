@@ -22,7 +22,7 @@ function handleFormSubmit(evt) {
     console.log(inputDay.val());
     console.log(inputTime.val());
     console.log(text);
-    addMessage(msg);
+    // addMessage(msg);
     // Reset the message container to be empty
     inputClassName.val('');
     inputTeacher.val('');
