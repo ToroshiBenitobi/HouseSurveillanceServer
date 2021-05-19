@@ -93,7 +93,7 @@ class VideoCamera(object):
         ret, frame = self.cap.read()
         if ret:
             # 人脸识别
-            cv.Flip(frame, flipMode=-1)
+            cv2.Flip(frame, flipMode=-1)
             self.face_locations, self.face_names = recognize_face(frame, self.known_face_encodings, self.known_face_names)
             frame = draw_face_frame(frame, self.face_locations, self.face_names)
             ret, jpeg = cv2.imencode('.jpg', frame)
