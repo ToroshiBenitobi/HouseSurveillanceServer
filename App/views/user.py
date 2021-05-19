@@ -159,7 +159,7 @@ def schedule_view():
 @userblue.route('/myinfo/uploadschedule', methods=['POST', 'GET'])
 def upload_schedule():
     item = session.get('user')
-    user = item.get('username')
+    user = item.get('id')
     time = request.form.get('time')
     text = request.form.get('text')
     class_schedule = ClassSchedule()
