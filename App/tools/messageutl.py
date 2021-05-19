@@ -77,17 +77,15 @@ def wall_add(msg, user):
     db.session.add(message)
     db.session.commit()
 
-    result = {"result": "Message Received", "messages": msg}
+    result = {"result": "已发送消息", "messages": msg}
 
     return result
 
 
 def wall_clear():
-    session["wall"] = DEFAULT_MESSAGES
 
-    result = wall_list()
-    result["result"] = "Wall Cleared"
-
+    Message.query.all().delete()
+    result = {"result": "已清除消息板"}
     return result
 
 

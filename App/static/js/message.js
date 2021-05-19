@@ -90,7 +90,7 @@ function getMessages() {
         var messages = data['messages']
         for(var i=0; i<messages.length; i++) {
             var message = messages[i]
-            $("#message-container").prepend("<li class='list-group-item'>" + message['text'] + "---" + message['user'] + " " + message['datetime'] + "</li>");
+            $("#message-container").prepend("<li class='list-group-item'>" + message['text'] + " —— " + message['user'] + " " + message['datetime'] + "</li>");
         }
     });
 }
