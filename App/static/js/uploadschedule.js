@@ -50,7 +50,7 @@ function handleFormSubmit(evt) {
     }
     console.log(classTime);
     console.log(text);
-    addCourse(msg);
+    addCourse(classTime, text);
     // Reset the message container to be empty
     inputClassName.val('');
     inputTeacher.val('');
