@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#schedule-form").submit(handleFormSubmit);
+    $("#class-form").submit(handleFormSubmit);
     $("#inputDay").val('');
     $("#inputTime").val('');
 });
@@ -16,7 +16,6 @@ function handleFormSubmit(evt) {
     var inputTeacher = $("#inputTeacher");
     var inputWeek = $("#inputWeek");
     var inputLocation = $("#inputLocation");
-    var className = inputClassName.val();
 
     var text = '<b>' + inputClassName.val() + '</b><br>' + inputTeacher.val() + '<br>' + inputWeek.val() + '周 ， ' + inputLocation.val() + '<br>';
     console.log(inputDay.val());

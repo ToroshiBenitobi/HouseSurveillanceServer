@@ -115,17 +115,13 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputLocation">授课地点</label>
-                    <input type="password" class="form-control" id="inputLocation">
+                    <input type="text" class="form-control" id="inputLocation">
                 </div>
             </div>
             <button id="class-send" type="submit" class="btn btn-primary">
                 提交
             </button>
         </form>
-
-        <p id="sent-result" class="alert alert-success"></p>
-        <p id="sent-fail" class="alert alert-danger"></p>
-
     </div>
 </div>
 <script src="{{ url_for('static',filename='js/uploadschedule.js') }}"></script>
