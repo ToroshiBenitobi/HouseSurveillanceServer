@@ -6,7 +6,7 @@ store (like a relational database). However, since we're demonstrating how
 to use client-side session systems, this stores things there.
 """
 from flask import session
-from HTMLParser import HTMLParser
+from html.parser import HTMLParser
 
 # So that you can play with the `get` API, we return a single
 # test message as the default.
@@ -76,6 +76,7 @@ def wall_clear():
     result["result"] = "Wall Cleared"
 
     return result
+
 
 class RemoveHTML(HTMLParser):
     out = ""
