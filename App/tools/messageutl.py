@@ -8,7 +8,7 @@ to use client-side session systems, this stores things there.
 from flask import session
 from html.parser import HTMLParser
 from App.models import db, Message
-import datetime
+from datetime import datetime
 # So that you can play with the `get` API, we return a single
 # test message as the default.
 
@@ -67,7 +67,7 @@ def wall_add(msg, user):
     # session.setdefault('wall', []).append(wall_dict)
     message = Message()
     message.id = message.query.count() + 1
-    message.datetime = datetime.datetime
+    message.datetime = datetime.now
     message.user = user
     message.text = msg
 
