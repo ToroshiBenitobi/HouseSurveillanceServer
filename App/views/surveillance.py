@@ -58,7 +58,7 @@ def record_status():
 
     if status == "true":
         camerautl.start_record()
-        return jsonify(result="started")
+        return jsonify(result="开始")
     else:
         save_path = camerautl.stop_record()
         item = session.get('user')
@@ -71,7 +71,7 @@ def record_status():
             video.userid = userid
         db.session.add(video)
         db.session.commit()
-        return jsonify(result="stopped", save_path=save_path)
+        return jsonify(result="停止", save_path=save_path)
 
 
 @surveillanceblue.route('/surveillance/downloadvideo', methods=['POST', 'GET'])
