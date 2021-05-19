@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>户外实时温度</title>
 
-
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/roomworld.css') }}">
 </head>
 
@@ -31,12 +31,12 @@
             </div>
         </div>
         <div class="location-container">
-            <button ><i data-feather="map-pin"></i><span>已在寝室</span></button>
+            <button class="btn" ><i data-feather="map-pin"></i><span>已在寝室</span></button>
         </div>
 
 
         <div class="location-container">
-            <button ><i data-feather="map-pin"></i><span>未在寝室</span></button>
+            <button class="btn" ><i data-feather="map-pin"></i><span>未在寝室</span></button>
         </div>
     </div>
 
