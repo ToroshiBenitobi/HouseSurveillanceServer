@@ -67,7 +67,7 @@ def wall_add(msg, user):
     # session.setdefault('wall', []).append(wall_dict)
     message = Message()
     message.id = message.query.count() + 1
-    message.datetime = datetime.now
+    # message.datetime = datetime.now
     message.user = user
     message.text = msg
 

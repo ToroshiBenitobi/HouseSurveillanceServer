@@ -1,5 +1,5 @@
 from App.ext import db
-
+from datetime import datetime
 
 # 用户数据模型
 class User(db.Model):
@@ -79,5 +79,5 @@ class Video(db.Model):
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.String(255))
-    datetime = db.Column(db.DateTime)
+    datetime = db.Column(db.DateTime, default=datetime.now)
     text = db.Column(db.String(255))
