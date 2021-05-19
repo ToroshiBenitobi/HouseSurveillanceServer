@@ -85,6 +85,6 @@ class Message(db.Model):
 
 # ClassSchedule
 class ClassSchedule(db.Model):
-    user = db.Column(db.String(10))
-    time = db.Column(db.String(10))
+    user = db.Column(db.String(10), primary_key=True)
+    time = db.Column(db.String(10), primary_key=True)
     text = db.Column(db.String(255))
