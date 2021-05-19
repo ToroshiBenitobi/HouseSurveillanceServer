@@ -70,7 +70,7 @@ function addCourse(classTime, text) {
         {'time': classTime, 'text': text},
         function (data) {
             console.log('Successfully add course.');
-
+            location.reload();
         }
     );
 }

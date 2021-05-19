@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
-<link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/dist/css/bootstrap.min.css') }}">
-<script src="{{ url_for('static',filename='jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ url_for('static',filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/dist/css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static',filename='jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </head>
 
 <title>Camera</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body>
-
-<center><h1>摄像头</h1></center>
-<div class="top">
-    <div class="recorder" id="recorder" align="center">
-        <button id="record" class="btn">开始录像</button>
-        <button id="stop" class="btn">停止录像</button>
-        <a id="download"></a>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/recorder.js') }}"></script>
+<div class="container">
+    <!-- Content here -->
+    <center><h1>摄像头</h1></center>
+    <div class="top">
+        <div class="recorder" id="recorder" align="center">
+            <button id="record" class="btn">开始录像</button>
+            <button id="stop" class="btn">停止录像</button>
+            <a id="download"></a>
+            <script type="text/javascript" src="{{ url_for('static', filename='js/recorder.js') }}"></script>
+        </div>
     </div>
+    <p class="alert alert-success" style="text-align: center;" id="msg"></p>
+    <div style="text-align: center;"><img width="640" height="480" id="video"
+                                          src="{{ url_for('surveillanceblue.streaming') }}"></div>
 </div>
-<p class="alert alert-success" style="text-align: center;" id="msg"></p>
-<div style="text-align: center;"><img width="640" height="480" id="video" src="{{ url_for('surveillanceblue.streaming') }}"></div>
 
 </body>
 </html>

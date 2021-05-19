@@ -8,120 +8,123 @@
     <script src="{{ url_for('static',filename='bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
-<h2>{{ user.username }}</h2>
-<div class="panel panel-default panel-floating panel-floating-inline">
-    <div class="table-responsive">
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th></th>
-                <th class="text-nowrap">周一</th>
-                <th class="text-nowrap">周二</th>
-                <th class="text-nowrap">周三</th>
-                <th class="text-nowrap">周四</th>
-                <th class="text-nowrap">周五</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td nowrap="">1-2节</td>
-                <td id="c1-1">{{ class_schdule['c1-1'] | safe }}</td>
-                <td id="c1-2">{{ class_schdule['c1-2'] | safe }}</td>
-                <td id="c1-3">{{ class_schdule['c1-3'] | safe }}</td>
-                <td id="c1-4">{{ class_schdule['c1-4'] | safe }}</td>
-                <td id="c1-5">{{ class_schdule['c1-5'] | safe }}</td>
-            </tr>
-            <tr>
-                <td nowrap="">3-4节</td>
-                <td id="c2-1">{{ class_schdule['c2-1'] | safe }}</td>
-                <td id="c2-2">{{ class_schdule['c2-2'] | safe }}</td>
-                <td id="c2-3">{{ class_schdule['c2-3'] | safe }}</td>
-                <td id="c2-4">{{ class_schdule['c2-4'] | safe }}</td>
-                <td id="c2-5">{{ class_schdule['c2-5'] | safe }}</td>
-            </tr>
-            <tr>
-                <td nowrap="">5-6节</td>
-                <td id="c3-1">{{ class_schdule['c3-1'] | safe }}</td>
-                <td id="c3-2">{{ class_schdule['c3-2'] | safe }}</td>
-                <td id="c3-2">{{ class_schdule['c3-3'] | safe }}</td>
-                <td id="c3-4">{{ class_schdule['c3-4'] | safe }}</td>
-                <td id="c3-5">{{ class_schdule['c3-4'] | safe }}</td>
-            </tr>
-            <tr>
-                <td nowrap="">7-8节</td>
-                <td id="c4-1">{{ class_schdule['c4-1'] | safe }}</td>
-                <td id="c4-2">{{ class_schdule['c4-2'] | safe }}</td>
-                <td id="c4-3">{{ class_schdule['c4-3'] | safe }}</td>
-                <td id="c4-4">{{ class_schdule['c4-4'] | safe }}</td>
-                <td id="c4-5">{{ class_schdule['c4-5'] | safe }}</td>
-            </tr>
-            <tr>
-                <td nowrap="">9-10节</td>
-                <td id="c5-1">{{ class_schdule['c5-1'] | safe }}</td>
-                <td id="c5-2">{{ class_schdule['c5-2'] | safe }}</td>
-                <td id="c5-3">{{ class_schdule['c5-3'] | safe }}</td>
-                <td id="c5-4">{{ class_schdule['c5-3'] | safe }}</td>
-                <td id="c5-5">{{ class_schdule['c5-5'] | safe }}</td>
-            </tr>
-            </tbody>
-        </table>
+<div class="container">
+    <!-- Content here -->
+    <h2>{{ user.username }}</h2>
+    <div class="panel panel-default panel-floating panel-floating-inline">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th class="text-nowrap">周一</th>
+                    <th class="text-nowrap">周二</th>
+                    <th class="text-nowrap">周三</th>
+                    <th class="text-nowrap">周四</th>
+                    <th class="text-nowrap">周五</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td nowrap="">1-2节</td>
+                    <td id="c1-1">{{ class_schdule['c1-1'] | safe }}</td>
+                    <td id="c1-2">{{ class_schdule['c1-2'] | safe }}</td>
+                    <td id="c1-3">{{ class_schdule['c1-3'] | safe }}</td>
+                    <td id="c1-4">{{ class_schdule['c1-4'] | safe }}</td>
+                    <td id="c1-5">{{ class_schdule['c1-5'] | safe }}</td>
+                </tr>
+                <tr>
+                    <td nowrap="">3-4节</td>
+                    <td id="c2-1">{{ class_schdule['c2-1'] | safe }}</td>
+                    <td id="c2-2">{{ class_schdule['c2-2'] | safe }}</td>
+                    <td id="c2-3">{{ class_schdule['c2-3'] | safe }}</td>
+                    <td id="c2-4">{{ class_schdule['c2-4'] | safe }}</td>
+                    <td id="c2-5">{{ class_schdule['c2-5'] | safe }}</td>
+                </tr>
+                <tr>
+                    <td nowrap="">5-6节</td>
+                    <td id="c3-1">{{ class_schdule['c3-1'] | safe }}</td>
+                    <td id="c3-2">{{ class_schdule['c3-2'] | safe }}</td>
+                    <td id="c3-2">{{ class_schdule['c3-3'] | safe }}</td>
+                    <td id="c3-4">{{ class_schdule['c3-4'] | safe }}</td>
+                    <td id="c3-5">{{ class_schdule['c3-4'] | safe }}</td>
+                </tr>
+                <tr>
+                    <td nowrap="">7-8节</td>
+                    <td id="c4-1">{{ class_schdule['c4-1'] | safe }}</td>
+                    <td id="c4-2">{{ class_schdule['c4-2'] | safe }}</td>
+                    <td id="c4-3">{{ class_schdule['c4-3'] | safe }}</td>
+                    <td id="c4-4">{{ class_schdule['c4-4'] | safe }}</td>
+                    <td id="c4-5">{{ class_schdule['c4-5'] | safe }}</td>
+                </tr>
+                <tr>
+                    <td nowrap="">9-10节</td>
+                    <td id="c5-1">{{ class_schdule['c5-1'] | safe }}</td>
+                    <td id="c5-2">{{ class_schdule['c5-2'] | safe }}</td>
+                    <td id="c5-3">{{ class_schdule['c5-3'] | safe }}</td>
+                    <td id="c5-4">{{ class_schdule['c5-3'] | safe }}</td>
+                    <td id="c5-5">{{ class_schdule['c5-5'] | safe }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            <span class="glyphicon glyphicon-pencil"></span>
-            添加课程
-        </h3>
-    </div>
-    <div class="panel-body">
-        <form role="form" id="class-form">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputDay">日期</label>
-                    <select id="inputDay" class="form-control">
-                        <option>星期一</option>
-                        <option>星期二</option>
-                        <option>星期三</option>
-                        <option>星期四</option>
-                        <option>星期五</option>
-                    </select>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <span class="glyphicon glyphicon-pencil"></span>
+                添加课程
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form role="form" id="class-form">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputDay">日期</label>
+                        <select id="inputDay" class="form-control">
+                            <option>星期一</option>
+                            <option>星期二</option>
+                            <option>星期三</option>
+                            <option>星期四</option>
+                            <option>星期五</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputTime">时间</label>
+                        <select id="inputTime" class="form-control">
+                            <option>1-2节</option>
+                            <option>3-4节</option>
+                            <option>5-6节</option>
+                            <option>7-8节</option>
+                            <option>9-10节</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputTime">时间</label>
-                    <select id="inputTime" class="form-control">
-                        <option>1-2节</option>
-                        <option>3-4节</option>
-                        <option>5-6节</option>
-                        <option>7-8节</option>
-                        <option>9-10节</option>
-                    </select>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputClassName">课程名称</label>
+                        <input type="text" class="form-control" id="inputClassName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputTeacher">授课教师</label>
+                        <input type="text" class="form-control" id="inputTeacher">
+                    </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputClassName">课程名称</label>
-                    <input type="text" class="form-control" id="inputClassName">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputWeek">授课周</label>
+                        <input type="text" class="form-control" id="inputWeek">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputLocation">授课地点</label>
+                        <input type="text" class="form-control" id="inputLocation">
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputTeacher">授课教师</label>
-                    <input type="text" class="form-control" id="inputTeacher">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputWeek">授课周</label>
-                    <input type="text" class="form-control" id="inputWeek">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputLocation">授课地点</label>
-                    <input type="text" class="form-control" id="inputLocation">
-                </div>
-            </div>
-            <button id="class-send" type="submit" class="btn btn-primary">
-                提交
-            </button>
-        </form>
+                <button id="class-send" type="submit" class="btn btn-primary">
+                    提交
+                </button>
+            </form>
+        </div>
     </div>
 </div>
 <script src="{{ url_for('static',filename='js/uploadschedule.js') }}"></script>
